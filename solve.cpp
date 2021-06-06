@@ -9,6 +9,7 @@ using vi = vector<int>;
 using vvi = vector<vi>;
 using vl = vector<ll>;
 using vvl = vector<vl>;
+using Order = vector<pair<char, int>>;
 
 #define range(i, l, r) for(int i = (int)(l); i < (int)(r); i++)
 #define rrange(i, l, r) for(int i = (int)(r)-1; i >= (int)(l); i--)
@@ -49,6 +50,27 @@ inline void print(const T &t, const U &...u) {
     if (sizeof...(u)) cout << " ";
     print(u...);
 }
+#ifdef LOCAL
+ofstream dout("./dump.txt");
+ofstream dout1("./dump1.txt");
+#else
+ofstream dout("/dev/null");
+ofstream dout1("/dev/null");
+#endif
+inline void dump() { dout << "\n"; }
+template <typename T, typename ...U>
+inline void dump(const T &t, const U &...u) {
+    dout << t;
+    if (sizeof...(u)) dout << " ";
+    dump(u...);
+}
+inline void dump1() { dout1 << "\n"; }
+template <typename T, typename ...U>
+inline void dump1(const T &t, const U &...u) {
+    dout1 << t;
+    if (sizeof...(u)) dout1 << " ";
+    dump1(u...);
+}
 template<typename T> inline bool chmax(T &a, T b) { if (a < b) { a = b; return 1; } return 0; }
 template<typename T> inline bool chmin(T &a, T b) { if (a > b) { a = b; return 1; } return 0; }
 #pragma endregion
@@ -71,14 +93,15 @@ public:
 
 class Graph {
     int h, w, n;
-    vector<vector<pi>> g;
+    // ny, nx, order
+    vector<vector<tuple<int, int, int>>> g;
 public:
     Graph(int h, int w) : h(h), w(w), n(h*w), g(n) {}
     
-    void add(int sy, int sx, int ty, int tx) {
-        g[sy*w+sx].push_back({ty, tx});
+    void add(int sy, int sx, int ty, int tx, int order) {
+        g[sy*w+sx].push_back({ty, tx, order});
     }
-    vector<pi> &get(int y, int x) {
+    vector<tuple<int, int, int>> &nxt(int y, int x) {
         return g[y*w+x];
     }
 };
@@ -90,7 +113,7 @@ map<char, pi> c2dir =
 
 int N, M;
 vvi board, reach;
-vector<vector<pair<char, int>>> orders;
+vector<Order> orders;
 
 void check_reachable(vvi &r) {
     queue<pi> q;
@@ -107,7 +130,7 @@ void check_reachable(vvi &r) {
     }
 }
 
-pi check_order(int y, int x, vector<pair<char, int>> &order, Cumsum2d &cs) {
+pi check_order(int y, int x, Order &order, Cumsum2d &cs) {
     if (board[y][x]) return {-1, -1};
     for (auto [d, val]: order) {
         auto [dy, dx] = c2dir[d];
@@ -130,40 +153,32 @@ void solve() {
     Graph graph = Graph(N, N);
     rep(i, N) rep(j, N) {
         if (!reach[i][j]) continue;
-        for (vector<pair<char, int>> &order: orders) {
+        rep(k, M) {
+            Order &order = orders[k];
             auto [ni, nj] = check_order(i, j, order, cs);
-            if (ni != -1) graph.add(i, j, ni, nj);
+            if (ni != -1) graph.add(i, j, ni, nj, k);
         }
     }
-    /*
-    rep(i, N) rep(j, N) {
-        print(i, j);
-        print(graph.get(i, j));
-        print("---");
-    }
-    */
     
+    unordered_set<int> ans;
     vvi reach_all_order(N, vi(N));
     queue<pi> q;
     reach_all_order[0][0] = 1;
     q.push({0, 0});
     while (!q.empty()) {
         auto [y, x] = q.front(); q.pop();
-        for (auto [ny, nx]: graph.get(y, x)) {
+        for (auto [ny, nx, k]: graph.nxt(y, x)) {
             if (reach_all_order[ny][nx]) continue;
-            reach_all_order[ny][nx] = 1;
+            reach_all_order[ny][nx] = reach_all_order[y][x]+1;
+            ans.insert(k);
             q.push({ny, nx});
         }
     }
-    /*    
-    rep(i, N) print(reach[i]);
-    rep(i, N) print(reach_all_order[i]);
-    */
     
     bool yesno = true;
     rep(i, N) {
         rep(j, N) {
-            if (reach[i][j] != reach_all_order[i][j]) {
+            if (reach[i][j] and !reach_all_order[i][j]) {
                 yesno = false;
                 break;
             }
@@ -172,6 +187,22 @@ void solve() {
     }
     
     print(yesno ? "Yes" : "No");
+    print(len(ans));
+    for (int k: ans) cout << k << " ";
+    cout << endl;
+    
+    //debug
+    dump(N);
+    rep(i, N) dump(reach[i]);
+    rep(i, N) dump(reach_all_order[i]);
+    rep(i, N) rep(j, N) {
+        if (graph.nxt(i, j).empty()) continue;
+        dump1("[" + to_string(i+1) + ", " + to_string(j+1) + "]");
+        for (auto [ni, nj, k]: graph.nxt(i, j)) {
+            dump1(ni+1, nj+1, "order:", k, orders[k]);
+        }
+        dump1();
+    }
 }
 
 void input() {
@@ -185,7 +216,7 @@ void input() {
     cin >> M;
     rep(i, M) {
         string s; cin >> s;
-        vector<pair<char, int>> order;
+        Order order;
         char cur = s[0];
         int cnt = 0;
         for (char c: s) {

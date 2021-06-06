@@ -3,10 +3,10 @@
 // 予選審査ではSEEDの値を別の「ある値」に変更する。
 #define SEED 0x0000000000000003ull
 
-#define N_MIN 2
-#define N_MAX 250
-#define M_MIN 1
-#define M_MAX 2000
+#define N_MIN 10
+#define N_MAX 10
+#define M_MIN 50
+#define M_MAX 200
 
 unsigned long long xor_shift() {
   static unsigned long long x = SEED;
@@ -30,9 +30,9 @@ void swap(int *x, int *y) {
 }
 
 int main() {
-  for (int t = 0; t < 100; t++) {
+  for (int t = 0; t < 20; t++) {
     char file_name[64];
-    sprintf(file_name, "qual_random_%02d.in", t + 1);
+    sprintf(file_name, "qual_minimum_%02d.in", t + 1);
 
     int N = range_rnd(N_MIN, N_MAX);
 

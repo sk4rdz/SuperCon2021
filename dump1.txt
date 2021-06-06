@@ -1,0 +1,1848 @@
+[1, 1]
+5 7 order: 19 D 4 R 6
+4 4 order: 28 D 4 R 3 U 1
+3 1 order: 53 D 4 U 3 D 1
+3 5 order: 57 D 2 R 4
+3 5 order: 61 D 2 R 4
+4 2 order: 102 D 3 R 1
+5 9 order: 136 D 4 R 9 L 1
+5 4 order: 142 R 1 D 4 R 2
+6 1 order: 149 D 5 U 1 D 1
+3 6 order: 152 D 2 R 5
+4 5 order: 154 D 4 R 5 L 1 D 1 U 2
+
+[1, 2]
+5 8 order: 19 D 4 R 6
+4 5 order: 28 D 4 R 3 U 1
+3 2 order: 53 D 4 U 3 D 1
+3 6 order: 57 D 2 R 4
+3 6 order: 61 D 2 R 4
+4 3 order: 102 D 3 R 1
+3 2 order: 113 L 1 R 1 D 2
+3 7 order: 152 D 2 R 5
+5 1 order: 168 D 4 L 1
+
+[1, 4]
+8 5 order: 96 R 1 D 7
+1 5 order: 135 R 2 L 1
+5 7 order: 142 R 1 D 4 R 2
+
+[1, 5]
+10 5 order: 8 D 9
+10 6 order: 13 D 9 R 1
+7 5 order: 14 D 6
+6 3 order: 18 D 6 L 3 R 1 U 1
+2 5 order: 26 D 7 U 6
+4 8 order: 28 D 4 R 3 U 1
+3 5 order: 53 D 4 U 3 D 1
+3 9 order: 57 D 2 R 4
+3 9 order: 61 D 2 R 4
+9 5 order: 66 D 7 U 2 D 3
+5 6 order: 76 D 6 U 2 R 1
+7 5 order: 90 D 6
+8 3 order: 92 D 7 L 2
+4 5 order: 93 D 6 U 3
+3 5 order: 103 D 7 U 5
+3 5 order: 113 L 1 R 1 D 2
+9 4 order: 116 D 8 L 1
+1 6 order: 135 R 2 L 1
+9 5 order: 137 D 9 U 1
+6 5 order: 149 D 5 U 1 D 1
+3 10 order: 152 D 2 R 5
+2 2 order: 156 D 4 L 3 U 3
+7 5 order: 166 D 6
+5 4 order: 168 D 4 L 1
+
+[1, 6]
+3 10 order: 57 D 2 R 4
+3 10 order: 61 D 2 R 4
+8 7 order: 96 R 1 D 7
+3 6 order: 113 L 1 R 1 D 2
+9 5 order: 115 L 1 D 8
+5 9 order: 142 R 1 D 4 R 2
+
+[1, 7]
+10 7 order: 8 D 9
+10 8 order: 13 D 9 R 1
+7 7 order: 14 D 6
+2 7 order: 26 D 7 U 6
+4 10 order: 28 D 4 R 3 U 1
+7 8 order: 34 D 6 R 1
+3 7 order: 53 D 4 U 3 D 1
+9 7 order: 66 D 7 U 2 D 3
+5 8 order: 76 D 6 U 2 R 1
+7 7 order: 90 D 6
+4 7 order: 93 D 6 U 3
+4 8 order: 102 D 3 R 1
+3 7 order: 103 D 7 U 5
+3 10 order: 107 D 6 R 3 U 4
+8 8 order: 110 D 4 U 1 D 4 R 1
+3 7 order: 113 L 1 R 1 D 2
+9 6 order: 116 D 8 L 1
+8 8 order: 120 D 7 R 1
+7 8 order: 123 D 7 U 1 R 1
+9 7 order: 137 D 9 U 1
+6 7 order: 149 D 5 U 1 D 1
+7 7 order: 166 D 6
+5 6 order: 168 D 4 L 1
+6 5 order: 172 L 2 D 5
+
+[1, 9]
+3 9 order: 53 D 4 U 3 D 1
+8 10 order: 96 R 1 D 7
+4 10 order: 102 D 3 R 1
+5 8 order: 168 D 4 L 1
+
+[1, 10]
+10 10 order: 8 D 9
+7 10 order: 14 D 6
+6 8 order: 18 D 6 L 3 R 1 U 1
+2 10 order: 26 D 7 U 6
+3 10 order: 53 D 4 U 3 D 1
+9 10 order: 66 D 7 U 2 D 3
+7 10 order: 90 D 6
+8 8 order: 92 D 7 L 2
+4 10 order: 93 D 6 U 3
+3 10 order: 103 D 7 U 5
+3 10 order: 113 L 1 R 1 D 2
+9 9 order: 116 D 8 L 1
+9 10 order: 137 D 9 U 1
+6 10 order: 149 D 5 U 1 D 1
+2 7 order: 156 D 4 L 3 U 3
+7 10 order: 166 D 6
+5 9 order: 168 D 4 L 1
+
+[2, 1]
+4 1 order: 53 D 4 U 3 D 1
+4 5 order: 57 D 2 R 4
+4 5 order: 61 D 2 R 4
+5 2 order: 102 D 3 R 1
+1 1 order: 131 D 2 U 3
+2 2 order: 135 R 2 L 1
+5 7 order: 167 D 3 R 6
+
+[2, 2]
+9 3 order: 96 R 1 D 7
+5 3 order: 102 D 3 R 1
+4 2 order: 113 L 1 R 1 D 2
+1 2 order: 131 D 2 U 3
+6 5 order: 142 R 1 D 4 R 2
+5 8 order: 167 D 3 R 6
+
+[2, 3]
+9 1 order: 0 D 7 R 1 L 3
+8 3 order: 14 D 6
+3 3 order: 26 D 7 U 6
+5 6 order: 28 D 4 R 3 U 1
+9 8 order: 31 D 7 R 5
+8 4 order: 34 D 6 R 1
+4 3 order: 53 D 4 U 3 D 1
+10 3 order: 66 D 7 U 2 D 3
+6 4 order: 76 D 6 U 2 R 1
+8 3 order: 90 D 6
+9 1 order: 92 D 7 L 2
+5 3 order: 93 D 6 U 3
+5 4 order: 102 D 3 R 1
+4 3 order: 103 D 7 U 5
+9 4 order: 110 D 4 U 1 D 4 R 1
+4 3 order: 113 L 1 R 1 D 2
+9 4 order: 120 D 7 R 1
+8 4 order: 123 D 7 U 1 R 1
+7 3 order: 149 D 5 U 1 D 1
+5 7 order: 154 D 4 R 5 L 1 D 1 U 2
+8 3 order: 166 D 6
+5 9 order: 167 D 3 R 6
+
+[2, 5]
+9 3 order: 0 D 7 R 1 L 3
+2 8 order: 11 R 5 L 3 R 1
+8 5 order: 14 D 6
+7 3 order: 18 D 6 L 3 R 1 U 1
+3 5 order: 26 D 7 U 6
+5 8 order: 28 D 4 R 3 U 1
+9 10 order: 31 D 7 R 5
+3 10 order: 37 R 5 D 1
+4 5 order: 53 D 4 U 3 D 1
+10 5 order: 66 D 7 U 2 D 3
+1 9 order: 67 R 4 U 1
+6 6 order: 76 D 6 U 2 R 1
+8 5 order: 90 D 6
+9 3 order: 92 D 7 L 2
+5 5 order: 93 D 6 U 3
+5 6 order: 102 D 3 R 1
+4 5 order: 103 D 7 U 5
+9 6 order: 110 D 4 U 1 D 4 R 1
+10 4 order: 116 D 8 L 1
+9 6 order: 120 D 7 R 1
+1 5 order: 131 D 2 U 3
+2 6 order: 135 R 2 L 1
+7 5 order: 149 D 5 U 1 D 1
+8 5 order: 166 D 6
+6 4 order: 168 D 4 L 1
+
+[2, 6]
+7 7 order: 62 R 4 D 5 L 3
+1 10 order: 67 R 4 U 1
+9 7 order: 96 R 1 D 7
+10 5 order: 115 L 1 D 8
+2 7 order: 135 R 2 L 1
+
+[2, 7]
+9 5 order: 0 D 7 R 1 L 3
+8 7 order: 14 D 6
+3 7 order: 26 D 7 U 6
+8 8 order: 34 D 6 R 1
+4 7 order: 53 D 4 U 3 D 1
+10 7 order: 66 D 7 U 2 D 3
+6 8 order: 76 D 6 U 2 R 1
+8 7 order: 90 D 6
+9 5 order: 92 D 7 L 2
+5 7 order: 93 D 6 U 3
+9 8 order: 96 R 1 D 7
+5 8 order: 102 D 3 R 1
+4 7 order: 103 D 7 U 5
+4 10 order: 107 D 6 R 3 U 4
+9 8 order: 110 D 4 U 1 D 4 R 1
+4 7 order: 113 L 1 R 1 D 2
+10 6 order: 116 D 8 L 1
+9 8 order: 120 D 7 R 1
+8 8 order: 123 D 7 U 1 R 1
+1 7 order: 131 D 2 U 3
+2 8 order: 135 R 2 L 1
+7 7 order: 149 D 5 U 1 D 1
+3 4 order: 156 D 4 L 3 U 3
+8 7 order: 166 D 6
+6 6 order: 168 D 4 L 1
+7 5 order: 172 L 2 D 5
+
+[2, 8]
+9 6 order: 0 D 7 R 1 L 3
+8 8 order: 14 D 6
+4 10 order: 15 L 3 R 5 D 2
+3 8 order: 26 D 7 U 6
+8 9 order: 34 D 6 R 1
+4 8 order: 53 D 4 U 3 D 1
+10 8 order: 66 D 7 U 2 D 3
+8 8 order: 90 D 6
+9 6 order: 92 D 7 L 2
+5 8 order: 93 D 6 U 3
+5 9 order: 102 D 3 R 1
+4 8 order: 103 D 7 U 5
+9 9 order: 110 D 4 U 1 D 4 R 1
+4 8 order: 113 L 1 R 1 D 2
+10 7 order: 115 L 1 D 8
+10 7 order: 116 D 8 L 1
+9 9 order: 120 D 7 R 1
+8 9 order: 123 D 7 U 1 R 1
+2 9 order: 135 R 2 L 1
+7 8 order: 149 D 5 U 1 D 1
+3 5 order: 156 D 4 L 3 U 3
+8 8 order: 166 D 6
+6 7 order: 168 D 4 L 1
+
+[2, 9]
+1 6 order: 20 L 4 U 1 R 1
+2 5 order: 79 L 4
+9 10 order: 96 R 1 D 7
+5 10 order: 102 D 3 R 1
+4 9 order: 113 L 1 R 1 D 2
+10 8 order: 115 L 1 D 8
+1 9 order: 131 D 2 U 3
+2 6 order: 134 L 4 R 3 L 2
+7 7 order: 172 L 2 D 5
+
+[2, 10]
+8 10 order: 14 D 6
+7 8 order: 18 D 6 L 3 R 1 U 1
+1 7 order: 20 L 4 U 1 R 1
+3 10 order: 26 D 7 U 6
+4 10 order: 53 D 4 U 3 D 1
+10 10 order: 66 D 7 U 2 D 3
+2 6 order: 79 L 4
+8 10 order: 90 D 6
+9 8 order: 92 D 7 L 2
+5 10 order: 93 D 6 U 3
+4 10 order: 103 D 7 U 5
+4 5 order: 104 L 5 D 2
+4 10 order: 113 L 1 R 1 D 2
+10 9 order: 116 D 8 L 1
+1 10 order: 131 D 2 U 3
+2 7 order: 134 L 4 R 3 L 2
+2 8 order: 148 L 5 R 3
+7 10 order: 149 D 5 U 1 D 1
+2 5 order: 163 L 5 U 1 D 1
+8 10 order: 166 D 6
+7 8 order: 172 L 2 D 5
+
+[3, 1]
+2 9 order: 4 R 8 U 1
+5 2 order: 7 U 2 D 4 R 1
+3 4 order: 11 R 5 L 3 R 1
+2 8 order: 29 R 7 U 1
+4 10 order: 32 R 9 D 1
+3 9 order: 49 R 8
+5 5 order: 57 D 2 R 4
+5 5 order: 61 D 2 R 4
+8 2 order: 62 R 4 D 5 L 3
+2 5 order: 67 R 4 U 1
+5 3 order: 87 U 2 D 3 R 2 D 1
+2 1 order: 91 D 2 U 4 D 1
+3 10 order: 97 R 9
+3 8 order: 125 R 7 L 2 R 2
+2 1 order: 131 D 2 U 3
+3 2 order: 135 R 2 L 1
+4 7 order: 143 R 8 L 3 R 1 D 1
+2 8 order: 147 R 8 U 1 L 1
+3 7 order: 151 R 6
+5 6 order: 152 D 2 R 5
+2 8 order: 157 R 7 U 1
+4 9 order: 164 R 8 D 1
+3 10 order: 171 R 9
+
+[3, 2]
+2 10 order: 4 R 8 U 1
+5 3 order: 7 U 2 D 4 R 1
+3 5 order: 11 R 5 L 3 R 1
+2 9 order: 29 R 7 U 1
+4 7 order: 37 R 5 D 1
+3 10 order: 49 R 8
+5 6 order: 57 D 2 R 4
+5 6 order: 61 D 2 R 4
+2 6 order: 67 R 4 U 1
+5 4 order: 87 U 2 D 3 R 2 D 1
+2 2 order: 91 D 2 U 4 D 1
+10 3 order: 96 R 1 D 7
+5 2 order: 113 L 1 R 1 D 2
+3 9 order: 125 R 7 L 2 R 2
+2 2 order: 131 D 2 U 3
+3 3 order: 135 R 2 L 1
+7 5 order: 142 R 1 D 4 R 2
+4 8 order: 143 R 8 L 3 R 1 D 1
+2 9 order: 147 R 8 U 1 L 1
+3 8 order: 151 R 6
+5 7 order: 152 D 2 R 5
+2 9 order: 157 R 7 U 1
+4 10 order: 164 R 8 D 1
+4 7 order: 173 R 5 U 2 D 3
+
+[3, 3]
+3 6 order: 11 R 5 L 3 R 1
+9 3 order: 14 D 6
+4 3 order: 26 D 7 U 6
+2 10 order: 29 R 7 U 1
+10 8 order: 31 D 7 R 5
+9 4 order: 34 D 6 R 1
+4 8 order: 37 R 5 D 1
+5 3 order: 53 D 4 U 3 D 1
+5 7 order: 57 D 2 R 4
+5 7 order: 61 D 2 R 4
+2 7 order: 67 R 4 U 1
+1 1 order: 72 L 1 U 2 L 1
+7 4 order: 76 D 6 U 2 R 1
+9 8 order: 83 D 6 R 5
+9 3 order: 90 D 6
+6 3 order: 93 D 6 U 3
+10 4 order: 96 R 1 D 7
+6 4 order: 102 D 3 R 1
+5 3 order: 103 D 7 U 5
+10 4 order: 110 D 4 U 1 D 4 R 1
+5 3 order: 113 L 1 R 1 D 2
+10 4 order: 120 D 7 R 1
+9 4 order: 123 D 7 U 1 R 1
+3 10 order: 125 R 7 L 2 R 2
+9 6 order: 130 D 6 R 4 L 1
+2 3 order: 131 D 2 U 3
+3 4 order: 135 R 2 L 1
+8 3 order: 149 D 5 U 1 D 1
+3 9 order: 151 R 6
+5 8 order: 152 D 2 R 5
+2 10 order: 157 R 7 U 1
+9 3 order: 166 D 6
+7 2 order: 168 D 4 L 1
+
+[3, 4]
+3 7 order: 11 R 5 L 3 R 1
+9 4 order: 14 D 6
+8 2 order: 18 D 6 L 3 R 1 U 1
+4 4 order: 26 D 7 U 6
+10 9 order: 31 D 7 R 5
+9 5 order: 34 D 6 R 1
+4 9 order: 37 R 5 D 1
+5 4 order: 53 D 4 U 3 D 1
+5 8 order: 57 D 2 R 4
+5 8 order: 61 D 2 R 4
+2 8 order: 67 R 4 U 1
+6 1 order: 68 R 4 L 7 D 3
+7 5 order: 76 D 6 U 2 R 1
+9 9 order: 83 D 6 R 5
+9 4 order: 90 D 6
+6 4 order: 93 D 6 U 3
+10 5 order: 96 R 1 D 7
+6 5 order: 102 D 3 R 1
+5 4 order: 103 D 7 U 5
+5 7 order: 107 D 6 R 3 U 4
+10 5 order: 110 D 4 U 1 D 4 R 1
+5 4 order: 113 L 1 R 1 D 2
+10 5 order: 120 D 7 R 1
+9 5 order: 123 D 7 U 1 R 1
+9 7 order: 130 D 6 R 4 L 1
+3 5 order: 135 R 2 L 1
+8 4 order: 149 D 5 U 1 D 1
+3 10 order: 151 R 6
+5 9 order: 152 D 2 R 5
+9 4 order: 166 D 6
+7 3 order: 168 D 4 L 1
+4 9 order: 173 R 5 U 2 D 3
+
+[3, 5]
+10 3 order: 0 D 7 R 1 L 3
+5 6 order: 7 U 2 D 4 R 1
+3 8 order: 11 R 5 L 3 R 1
+9 5 order: 14 D 6
+5 7 order: 15 L 3 R 5 D 2
+8 3 order: 18 D 6 L 3 R 1 U 1
+2 2 order: 20 L 4 U 1 R 1
+4 5 order: 26 D 7 U 6
+10 10 order: 31 D 7 R 5
+9 6 order: 34 D 6 R 1
+4 10 order: 37 R 5 D 1
+5 5 order: 53 D 4 U 3 D 1
+5 9 order: 57 D 2 R 4
+5 9 order: 61 D 2 R 4
+2 9 order: 67 R 4 U 1
+3 1 order: 79 L 4
+9 10 order: 83 D 6 R 5
+9 5 order: 90 D 6
+2 5 order: 91 D 2 U 4 D 1
+10 3 order: 92 D 7 L 2
+6 5 order: 93 D 6 U 3
+6 6 order: 102 D 3 R 1
+5 5 order: 103 D 7 U 5
+5 8 order: 107 D 6 R 3 U 4
+10 6 order: 110 D 4 U 1 D 4 R 1
+5 5 order: 113 L 1 R 1 D 2
+10 6 order: 120 D 7 R 1
+9 6 order: 123 D 7 U 1 R 1
+6 4 order: 127 U 2 D 5 R 2 L 3
+9 8 order: 130 D 6 R 4 L 1
+2 5 order: 131 D 2 U 3
+3 2 order: 134 L 4 R 3 L 2
+3 6 order: 135 R 2 L 1
+8 5 order: 149 D 5 U 1 D 1
+5 10 order: 152 D 2 R 5
+9 5 order: 166 D 6
+7 4 order: 168 D 4 L 1
+8 3 order: 172 L 2 D 5
+4 10 order: 173 R 5 U 2 D 3
+
+[3, 6]
+5 8 order: 15 L 3 R 5 D 2
+2 3 order: 20 L 4 U 1 R 1
+5 1 order: 55 L 4 R 1 D 2 L 2
+8 7 order: 62 R 4 D 5 L 3
+2 10 order: 67 R 4 U 1
+6 3 order: 68 R 4 L 7 D 3
+1 4 order: 72 L 1 U 2 L 1
+3 2 order: 79 L 4
+10 7 order: 96 R 1 D 7
+5 1 order: 104 L 5 D 2
+3 3 order: 134 L 4 R 3 L 2
+3 7 order: 135 R 2 L 1
+7 9 order: 142 R 1 D 4 R 2
+3 4 order: 148 L 5 R 3
+3 1 order: 163 L 5 U 1 D 1
+8 4 order: 172 L 2 D 5
+
+[3, 7]
+10 5 order: 0 D 7 R 1 L 3
+3 1 order: 6 L 6
+5 8 order: 7 U 2 D 4 R 1
+9 7 order: 14 D 6
+5 9 order: 15 L 3 R 5 D 2
+8 5 order: 18 D 6 L 3 R 1 U 1
+4 7 order: 26 D 7 U 6
+6 10 order: 28 D 4 R 3 U 1
+9 8 order: 34 D 6 R 1
+5 7 order: 53 D 4 U 3 D 1
+5 2 order: 55 L 4 R 1 D 2 L 2
+1 4 order: 56 L 6 R 4 U 2 L 1
+1 5 order: 72 L 1 U 2 L 1
+7 8 order: 76 D 6 U 2 R 1
+3 3 order: 79 L 4
+5 9 order: 87 U 2 D 3 R 2 D 1
+9 7 order: 90 D 6
+2 7 order: 91 D 2 U 4 D 1
+10 5 order: 92 D 7 L 2
+6 7 order: 93 D 6 U 3
+10 8 order: 96 R 1 D 7
+6 8 order: 102 D 3 R 1
+5 7 order: 103 D 7 U 5
+5 2 order: 104 L 5 D 2
+5 10 order: 107 D 6 R 3 U 4
+10 8 order: 110 D 4 U 1 D 4 R 1
+5 7 order: 113 L 1 R 1 D 2
+10 8 order: 120 D 7 R 1
+9 8 order: 123 D 7 U 1 R 1
+2 7 order: 131 D 2 U 3
+3 4 order: 134 L 4 R 3 L 2
+3 8 order: 135 R 2 L 1
+7 10 order: 142 R 1 D 4 R 2
+3 5 order: 148 L 5 R 3
+8 7 order: 149 D 5 U 1 D 1
+3 2 order: 163 L 5 U 1 D 1
+3 4 order: 165 L 6 R 4 L 1
+9 7 order: 166 D 6
+8 5 order: 172 L 2 D 5
+
+[3, 8]
+10 6 order: 0 D 7 R 1 L 3
+3 2 order: 6 L 6
+9 8 order: 14 D 6
+5 10 order: 15 L 3 R 5 D 2
+4 8 order: 26 D 7 U 6
+9 9 order: 34 D 6 R 1
+5 8 order: 53 D 4 U 3 D 1
+5 3 order: 55 L 4 R 1 D 2 L 2
+1 5 order: 56 L 6 R 4 U 2 L 1
+3 2 order: 60 R 1 L 4 R 1 L 5 R 1
+1 6 order: 72 L 1 U 2 L 1
+7 9 order: 76 D 6 U 2 R 1
+3 4 order: 79 L 4
+9 8 order: 90 D 6
+10 6 order: 92 D 7 L 2
+6 8 order: 93 D 6 U 3
+5 8 order: 103 D 7 U 5
+5 3 order: 104 L 5 D 2
+10 9 order: 110 D 4 U 1 D 4 R 1
+1 2 order: 111 L 7 U 2 R 1
+5 8 order: 113 L 1 R 1 D 2
+10 9 order: 120 D 7 R 1
+9 9 order: 123 D 7 U 1 R 1
+2 8 order: 131 D 2 U 3
+3 5 order: 134 L 4 R 3 L 2
+3 9 order: 135 R 2 L 1
+3 6 order: 148 L 5 R 3
+8 8 order: 149 D 5 U 1 D 1
+3 3 order: 161 L 7 R 2
+3 3 order: 163 L 5 U 1 D 1
+3 5 order: 165 L 6 R 4 L 1
+9 8 order: 166 D 6
+7 7 order: 168 D 4 L 1
+
+[3, 9]
+3 3 order: 6 L 6
+5 10 order: 7 U 2 D 4 R 1
+2 6 order: 20 L 4 U 1 R 1
+2 1 order: 43 L 8 U 1
+6 5 order: 50 L 6 D 3 R 2
+6 1 order: 52 L 6 D 2 L 2 D 1
+1 6 order: 56 L 6 R 4 U 2 L 1
+3 3 order: 60 R 1 L 4 R 1 L 5 R 1
+3 5 order: 79 L 4
+2 9 order: 91 D 2 U 4 D 1
+10 10 order: 96 R 1 D 7
+5 4 order: 104 L 5 D 2
+5 9 order: 113 L 1 R 1 D 2
+2 9 order: 131 D 2 U 3
+3 6 order: 134 L 4 R 3 L 2
+3 7 order: 148 L 5 R 3
+3 4 order: 161 L 7 R 2
+3 6 order: 165 L 6 R 4 L 1
+8 7 order: 172 L 2 D 5
+
+[3, 10]
+3 4 order: 6 L 6
+9 10 order: 14 D 6
+4 1 order: 16 L 8 U 1 L 1 D 2
+8 8 order: 18 D 6 L 3 R 1 U 1
+2 7 order: 20 L 4 U 1 R 1
+3 2 order: 22 L 9 R 2 L 1
+4 10 order: 26 D 7 U 6
+2 2 order: 43 L 8 U 1
+6 6 order: 50 L 6 D 3 R 2
+5 10 order: 53 D 4 U 3 D 1
+5 5 order: 55 L 4 R 1 D 2 L 2
+3 6 order: 79 L 4
+1 2 order: 82 L 9 U 2 R 1
+9 10 order: 90 D 6
+2 10 order: 91 D 2 U 4 D 1
+10 8 order: 92 D 7 L 2
+6 10 order: 93 D 6 U 3
+5 10 order: 103 D 7 U 5
+5 5 order: 104 L 5 D 2
+5 10 order: 113 L 1 R 1 D 2
+3 1 order: 126 L 9
+2 10 order: 131 D 2 U 3
+3 7 order: 134 L 4 R 3 L 2
+3 8 order: 148 L 5 R 3
+8 10 order: 149 D 5 U 1 D 1
+4 7 order: 156 D 4 L 3 U 3
+3 5 order: 161 L 7 R 2
+3 5 order: 163 L 5 U 1 D 1
+3 7 order: 165 L 6 R 4 L 1
+9 10 order: 166 D 6
+7 9 order: 168 D 4 L 1
+8 8 order: 172 L 2 D 5
+
+[4, 1]
+9 2 order: 62 R 4 D 5 L 3
+3 5 order: 67 R 4 U 1
+6 3 order: 87 U 2 D 3 R 2 D 1
+3 1 order: 91 D 2 U 4 D 1
+1 1 order: 119 R 3 L 3 U 3
+3 1 order: 131 D 2 U 3
+4 2 order: 135 R 2 L 1
+
+[4, 2]
+6 4 order: 87 U 2 D 3 R 2 D 1
+1 2 order: 119 R 3 L 3 U 3
+4 3 order: 135 R 2 L 1
+8 5 order: 142 R 1 D 4 R 2
+
+[4, 3]
+6 4 order: 7 U 2 D 4 R 1
+10 3 order: 14 D 6
+10 4 order: 34 D 6 R 1
+6 3 order: 53 D 4 U 3 D 1
+6 7 order: 57 D 2 R 4
+6 7 order: 61 D 2 R 4
+2 1 order: 72 L 1 U 2 L 1
+8 4 order: 76 D 6 U 2 R 1
+10 8 order: 83 D 6 R 5
+1 2 order: 85 L 2 U 3 R 1
+6 5 order: 87 U 2 D 3 R 2 D 1
+10 3 order: 90 D 6
+3 3 order: 91 D 2 U 4 D 1
+7 3 order: 93 D 6 U 3
+7 4 order: 102 D 3 R 1
+6 3 order: 113 L 1 R 1 D 2
+7 2 order: 127 U 2 D 5 R 2 L 3
+10 6 order: 130 D 6 R 4 L 1
+3 3 order: 131 D 2 U 3
+4 4 order: 135 R 2 L 1
+9 3 order: 149 D 5 U 1 D 1
+6 8 order: 152 D 2 R 5
+1 5 order: 160 R 2 U 3 R 1 L 1
+10 3 order: 166 D 6
+8 2 order: 168 D 4 L 1
+
+[4, 4]
+10 4 order: 14 D 6
+10 5 order: 34 D 6 R 1
+6 4 order: 53 D 4 U 3 D 1
+6 8 order: 57 D 2 R 4
+6 8 order: 61 D 2 R 4
+2 2 order: 72 L 1 U 2 L 1
+8 5 order: 76 D 6 U 2 R 1
+10 9 order: 83 D 6 R 5
+10 4 order: 90 D 6
+7 4 order: 93 D 6 U 3
+7 5 order: 102 D 3 R 1
+6 7 order: 107 D 6 R 3 U 4
+6 4 order: 113 L 1 R 1 D 2
+10 7 order: 130 D 6 R 4 L 1
+3 4 order: 131 D 2 U 3
+9 4 order: 149 D 5 U 1 D 1
+10 4 order: 166 D 6
+8 3 order: 168 D 4 L 1
+
+[4, 5]
+1 5 order: 5 D 4 U 7
+6 6 order: 7 U 2 D 4 R 1
+10 5 order: 14 D 6
+3 2 order: 20 L 4 U 1 R 1
+2 9 order: 23 U 2 R 4
+10 6 order: 34 D 6 R 1
+6 5 order: 53 D 4 U 3 D 1
+1 1 order: 65 D 1 L 4 U 4
+4 1 order: 79 L 4
+2 8 order: 81 U 2 R 3
+10 10 order: 83 D 6 R 5
+6 7 order: 87 U 2 D 3 R 2 D 1
+10 5 order: 90 D 6
+3 5 order: 91 D 2 U 4 D 1
+7 5 order: 93 D 6 U 3
+6 8 order: 107 D 6 R 3 U 4
+6 5 order: 113 L 1 R 1 D 2
+10 8 order: 130 D 6 R 4 L 1
+3 5 order: 131 D 2 U 3
+4 2 order: 134 L 4 R 3 L 2
+9 5 order: 149 D 5 U 1 D 1
+10 5 order: 166 D 6
+8 4 order: 168 D 4 L 1
+9 3 order: 172 L 2 D 5
+
+[4, 7]
+1 5 order: 2 U 3 L 2
+1 7 order: 5 D 4 U 7
+6 8 order: 7 U 2 D 4 R 1
+10 7 order: 14 D 6
+9 5 order: 18 D 6 L 3 R 1 U 1
+7 10 order: 28 D 4 R 3 U 1
+10 8 order: 34 D 6 R 1
+6 7 order: 53 D 4 U 3 D 1
+8 8 order: 76 D 6 U 2 R 1
+2 10 order: 81 U 2 R 3
+10 7 order: 90 D 6
+3 7 order: 91 D 2 U 4 D 1
+7 7 order: 93 D 6 U 3
+7 8 order: 102 D 3 R 1
+6 10 order: 107 D 6 R 3 U 4
+1 7 order: 119 R 3 L 3 U 3
+3 7 order: 131 D 2 U 3
+4 8 order: 135 R 2 L 1
+8 10 order: 142 R 1 D 4 R 2
+9 7 order: 149 D 5 U 1 D 1
+1 9 order: 160 R 2 U 3 R 1 L 1
+10 7 order: 166 D 6
+
+[4, 8]
+10 8 order: 14 D 6
+9 6 order: 18 D 6 L 3 R 1 U 1
+10 9 order: 34 D 6 R 1
+6 8 order: 53 D 4 U 3 D 1
+2 6 order: 72 L 1 U 2 L 1
+8 9 order: 76 D 6 U 2 R 1
+6 10 order: 87 U 2 D 3 R 2 D 1
+10 8 order: 90 D 6
+3 8 order: 91 D 2 U 4 D 1
+7 8 order: 93 D 6 U 3
+7 9 order: 102 D 3 R 1
+6 8 order: 113 L 1 R 1 D 2
+7 7 order: 127 U 2 D 5 R 2 L 3
+3 8 order: 131 D 2 U 3
+4 9 order: 135 R 2 L 1
+9 8 order: 149 D 5 U 1 D 1
+10 8 order: 166 D 6
+8 7 order: 168 D 4 L 1
+
+[4, 9]
+1 5 order: 65 D 1 L 4 U 4
+2 7 order: 72 L 1 U 2 L 1
+9 7 order: 172 L 2 D 5
+
+[4, 10]
+1 10 order: 5 D 4 U 7
+10 10 order: 14 D 6
+9 8 order: 18 D 6 L 3 R 1 U 1
+6 10 order: 53 D 4 U 3 D 1
+2 8 order: 72 L 1 U 2 L 1
+10 10 order: 90 D 6
+3 10 order: 91 D 2 U 4 D 1
+7 10 order: 93 D 6 U 3
+6 10 order: 113 L 1 R 1 D 2
+3 10 order: 131 D 2 U 3
+9 10 order: 149 D 5 U 1 D 1
+5 7 order: 156 D 4 L 3 U 3
+10 10 order: 166 D 6
+8 9 order: 168 D 4 L 1
+9 8 order: 172 L 2 D 5
+
+[5, 1]
+4 9 order: 4 R 8 U 1
+5 4 order: 11 R 5 L 3 R 1
+3 5 order: 23 U 2 R 4
+4 8 order: 29 R 7 U 1
+6 10 order: 32 R 9 D 1
+6 6 order: 37 R 5 D 1
+5 9 order: 49 R 8
+4 5 order: 67 R 4 U 1
+3 4 order: 81 U 2 R 3
+5 10 order: 97 R 9
+2 1 order: 119 R 3 L 3 U 3
+5 8 order: 125 R 7 L 2 R 2
+5 2 order: 135 R 2 L 1
+6 7 order: 143 R 8 L 3 R 1 D 1
+4 8 order: 147 R 8 U 1 L 1
+5 7 order: 151 R 6
+3 7 order: 155 R 6 U 3 D 1
+4 8 order: 157 R 7 U 1
+5 10 order: 171 R 9
+
+[5, 2]
+4 10 order: 4 R 8 U 1
+5 5 order: 11 R 5 L 3 R 1
+3 6 order: 23 U 2 R 4
+4 9 order: 29 R 7 U 1
+6 7 order: 37 R 5 D 1
+5 10 order: 49 R 8
+3 5 order: 81 U 2 R 3
+1 2 order: 99 L 1 D 1 U 5 R 1
+2 2 order: 119 R 3 L 3 U 3
+5 9 order: 125 R 7 L 2 R 2
+5 3 order: 135 R 2 L 1
+9 5 order: 142 R 1 D 4 R 2
+6 8 order: 143 R 8 L 3 R 1 D 1
+4 9 order: 147 R 8 U 1 L 1
+5 8 order: 151 R 6
+3 8 order: 155 R 6 U 3 D 1
+4 9 order: 157 R 7 U 1
+6 10 order: 164 R 8 D 1
+6 7 order: 173 R 5 U 2 D 3
+
+[5, 3]
+2 1 order: 2 U 3 L 2
+2 3 order: 5 D 4 U 7
+7 4 order: 7 U 2 D 4 R 1
+5 6 order: 11 R 5 L 3 R 1
+9 9 order: 19 D 4 R 6
+3 7 order: 23 U 2 R 4
+4 10 order: 29 R 7 U 1
+6 8 order: 37 R 5 D 1
+7 3 order: 53 D 4 U 3 D 1
+10 4 order: 62 R 4 D 5 L 3
+4 7 order: 67 R 4 U 1
+3 1 order: 72 L 1 U 2 L 1
+3 6 order: 81 U 2 R 3
+2 2 order: 85 L 2 U 3 R 1
+7 5 order: 87 U 2 D 3 R 2 D 1
+4 3 order: 91 D 2 U 4 D 1
+8 4 order: 102 D 3 R 1
+7 3 order: 113 L 1 R 1 D 2
+2 3 order: 119 R 3 L 3 U 3
+5 10 order: 125 R 7 L 2 R 2
+8 2 order: 127 U 2 D 5 R 2 L 3
+4 3 order: 131 D 2 U 3
+5 4 order: 135 R 2 L 1
+9 6 order: 142 R 1 D 4 R 2
+10 3 order: 149 D 5 U 1 D 1
+5 9 order: 151 R 6
+8 7 order: 154 D 4 R 5 L 1 D 1 U 2
+3 9 order: 155 R 6 U 3 D 1
+4 10 order: 157 R 7 U 1
+2 5 order: 160 R 2 U 3 R 1 L 1
+9 2 order: 168 D 4 L 1
+6 8 order: 173 R 5 U 2 D 3
+
+[5, 4]
+7 5 order: 7 U 2 D 4 R 1
+5 7 order: 11 R 5 L 3 R 1
+9 10 order: 19 D 4 R 6
+3 8 order: 23 U 2 R 4
+8 7 order: 28 D 4 R 3 U 1
+7 4 order: 53 D 4 U 3 D 1
+10 5 order: 62 R 4 D 5 L 3
+4 8 order: 67 R 4 U 1
+3 2 order: 72 L 1 U 2 L 1
+3 7 order: 81 U 2 R 3
+2 3 order: 85 L 2 U 3 R 1
+4 4 order: 91 D 2 U 4 D 1
+8 5 order: 102 D 3 R 1
+7 4 order: 113 L 1 R 1 D 2
+4 4 order: 131 D 2 U 3
+5 5 order: 135 R 2 L 1
+9 7 order: 142 R 1 D 4 R 2
+10 4 order: 149 D 5 U 1 D 1
+5 10 order: 151 R 6
+8 8 order: 154 D 4 R 5 L 1 D 1 U 2
+3 10 order: 155 R 6 U 3 D 1
+9 3 order: 168 D 4 L 1
+
+[5, 5]
+2 5 order: 5 D 4 U 7
+5 8 order: 11 R 5 L 3 R 1
+7 7 order: 15 L 3 R 5 D 2
+4 2 order: 20 L 4 U 1 R 1
+3 9 order: 23 U 2 R 4
+6 8 order: 24 U 3 R 3 D 4
+8 8 order: 28 D 4 R 3 U 1
+6 10 order: 37 R 5 D 1
+7 5 order: 53 D 4 U 3 D 1
+4 9 order: 67 R 4 U 1
+3 3 order: 72 L 1 U 2 L 1
+2 1 order: 73 L 4 U 4 D 1
+5 1 order: 79 L 4
+3 8 order: 81 U 2 R 3
+7 7 order: 87 U 2 D 3 R 2 D 1
+4 5 order: 91 D 2 U 4 D 1
+7 5 order: 113 L 1 R 1 D 2
+2 5 order: 119 R 3 L 3 U 3
+4 5 order: 131 D 2 U 3
+5 2 order: 134 L 4 R 3 L 2
+5 6 order: 135 R 2 L 1
+10 5 order: 149 D 5 U 1 D 1
+8 9 order: 154 D 4 R 5 L 1 D 1 U 2
+2 7 order: 160 R 2 U 3 R 1 L 1
+9 4 order: 168 D 4 L 1
+10 3 order: 172 L 2 D 5
+6 10 order: 173 R 5 U 2 D 3
+
+[5, 6]
+2 9 order: 3 L 1 U 3 R 4
+7 8 order: 15 L 3 R 5 D 2
+4 3 order: 20 L 4 U 1 R 1
+10 7 order: 62 R 4 D 5 L 3
+4 10 order: 67 R 4 U 1
+8 3 order: 68 R 4 L 7 D 3
+3 4 order: 72 L 1 U 2 L 1
+2 2 order: 73 L 4 U 4 D 1
+5 2 order: 79 L 4
+1 6 order: 99 L 1 D 1 U 5 R 1
+5 3 order: 134 L 4 R 3 L 2
+5 7 order: 135 R 2 L 1
+9 9 order: 142 R 1 D 4 R 2
+5 4 order: 148 L 5 R 3
+2 8 order: 160 R 2 U 3 R 1 L 1
+5 1 order: 163 L 5 U 1 D 1
+10 4 order: 172 L 2 D 5
+
+[5, 7]
+2 5 order: 2 U 3 L 2
+2 7 order: 5 D 4 U 7
+5 1 order: 6 L 6
+7 8 order: 7 U 2 D 4 R 1
+4 4 order: 20 L 4 U 1 R 1
+6 10 order: 24 U 3 R 3 D 4
+8 10 order: 28 D 4 R 3 U 1
+7 7 order: 53 D 4 U 3 D 1
+7 2 order: 55 L 4 R 1 D 2 L 2
+3 4 order: 56 L 6 R 4 U 2 L 1
+2 3 order: 65 D 1 L 4 U 4
+5 3 order: 79 L 4
+3 10 order: 81 U 2 R 3
+2 6 order: 85 L 2 U 3 R 1
+4 7 order: 91 D 2 U 4 D 1
+8 8 order: 102 D 3 R 1
+7 7 order: 113 L 1 R 1 D 2
+2 7 order: 119 R 3 L 3 U 3
+4 7 order: 131 D 2 U 3
+5 4 order: 134 L 4 R 3 L 2
+5 8 order: 135 R 2 L 1
+9 10 order: 142 R 1 D 4 R 2
+5 5 order: 148 L 5 R 3
+10 7 order: 149 D 5 U 1 D 1
+6 4 order: 156 D 4 L 3 U 3
+2 9 order: 160 R 2 U 3 R 1 L 1
+5 2 order: 163 L 5 U 1 D 1
+5 4 order: 165 L 6 R 4 L 1
+9 6 order: 168 D 4 L 1
+10 5 order: 172 L 2 D 5
+
+[5, 8]
+2 6 order: 2 U 3 L 2
+2 8 order: 5 D 4 U 7
+5 2 order: 6 L 6
+7 9 order: 7 U 2 D 4 R 1
+7 10 order: 15 L 3 R 5 D 2
+4 5 order: 20 L 4 U 1 R 1
+7 8 order: 53 D 4 U 3 D 1
+7 3 order: 55 L 4 R 1 D 2 L 2
+5 2 order: 60 R 1 L 4 R 1 L 5 R 1
+3 6 order: 72 L 1 U 2 L 1
+5 4 order: 79 L 4
+4 8 order: 91 D 2 U 4 D 1
+8 9 order: 102 D 3 R 1
+7 3 order: 104 L 5 D 2
+3 2 order: 111 L 7 U 2 R 1
+7 8 order: 113 L 1 R 1 D 2
+8 7 order: 127 U 2 D 5 R 2 L 3
+4 8 order: 131 D 2 U 3
+5 5 order: 134 L 4 R 3 L 2
+5 9 order: 135 R 2 L 1
+5 6 order: 148 L 5 R 3
+10 8 order: 149 D 5 U 1 D 1
+6 5 order: 156 D 4 L 3 U 3
+5 3 order: 161 L 7 R 2
+5 3 order: 163 L 5 U 1 D 1
+5 5 order: 165 L 6 R 4 L 1
+9 7 order: 168 D 4 L 1
+
+[5, 9]
+2 7 order: 2 U 3 L 2
+5 3 order: 6 L 6
+4 1 order: 43 L 8 U 1
+8 5 order: 50 L 6 D 3 R 2
+3 6 order: 56 L 6 R 4 U 2 L 1
+5 3 order: 60 R 1 L 4 R 1 L 5 R 1
+3 7 order: 72 L 1 U 2 L 1
+2 5 order: 73 L 4 U 4 D 1
+5 5 order: 79 L 4
+2 8 order: 85 L 2 U 3 R 1
+2 5 order: 98 U 3 L 4
+7 4 order: 104 L 5 D 2
+3 3 order: 111 L 7 U 2 R 1
+5 6 order: 134 L 4 R 3 L 2
+5 7 order: 148 L 5 R 3
+5 4 order: 161 L 7 R 2
+5 4 order: 163 L 5 U 1 D 1
+5 6 order: 165 L 6 R 4 L 1
+10 7 order: 172 L 2 D 5
+
+[5, 10]
+2 8 order: 2 U 3 L 2
+2 10 order: 5 D 4 U 7
+5 4 order: 6 L 6
+6 1 order: 16 L 8 U 1 L 1 D 2
+5 2 order: 22 L 9 R 2 L 1
+4 2 order: 43 L 8 U 1
+8 2 order: 52 L 6 D 2 L 2 D 1
+7 10 order: 53 D 4 U 3 D 1
+3 7 order: 56 L 6 R 4 U 2 L 1
+3 8 order: 72 L 1 U 2 L 1
+5 6 order: 79 L 4
+3 2 order: 82 L 9 U 2 R 1
+2 9 order: 85 L 2 U 3 R 1
+4 10 order: 91 D 2 U 4 D 1
+2 6 order: 98 U 3 L 4
+7 5 order: 104 L 5 D 2
+3 4 order: 111 L 7 U 2 R 1
+7 10 order: 113 L 1 R 1 D 2
+5 1 order: 126 L 9
+4 10 order: 131 D 2 U 3
+5 7 order: 134 L 4 R 3 L 2
+5 8 order: 148 L 5 R 3
+10 10 order: 149 D 5 U 1 D 1
+6 7 order: 156 D 4 L 3 U 3
+5 5 order: 161 L 7 R 2
+5 5 order: 163 L 5 U 1 D 1
+5 7 order: 165 L 6 R 4 L 1
+9 9 order: 168 D 4 L 1
+10 8 order: 172 L 2 D 5
+
+[6, 1]
+4 5 order: 23 U 2 R 4
+7 4 order: 24 U 3 R 3 D 4
+6 1 order: 30 U 5 D 5
+1 1 order: 47 U 5
+2 7 order: 64 U 3 R 1 L 1 R 7 U 1 L 1
+4 4 order: 81 U 2 R 3
+4 2 order: 106 U 4 R 1 U 1 D 3
+
+[6, 3]
+3 1 order: 2 U 3 L 2
+3 3 order: 5 D 4 U 7
+8 4 order: 7 U 2 D 4 R 1
+6 6 order: 11 R 5 L 3 R 1
+10 9 order: 19 D 4 R 6
+9 6 order: 28 D 4 R 3 U 1
+7 8 order: 37 R 5 D 1
+8 3 order: 53 D 4 U 3 D 1
+2 9 order: 64 U 3 R 1 L 1 R 7 U 1 L 1
+5 7 order: 67 R 4 U 1
+8 5 order: 87 U 2 D 3 R 2 D 1
+5 3 order: 91 D 2 U 4 D 1
+9 4 order: 102 D 3 R 1
+3 3 order: 119 R 3 L 3 U 3
+9 2 order: 127 U 2 D 5 R 2 L 3
+5 3 order: 131 D 2 U 3
+6 4 order: 135 R 2 L 1
+10 6 order: 142 R 1 D 4 R 2
+3 5 order: 160 R 2 U 3 R 1 L 1
+9 9 order: 167 D 3 R 6
+7 8 order: 173 R 5 U 2 D 3
+
+[6, 4]
+3 2 order: 2 U 3 L 2
+3 7 order: 3 L 1 U 3 R 4
+3 4 order: 5 D 4 U 7
+8 5 order: 7 U 2 D 4 R 1
+10 10 order: 19 D 4 R 6
+7 7 order: 24 U 3 R 3 D 4
+9 7 order: 28 D 4 R 3 U 1
+8 4 order: 53 D 4 U 3 D 1
+5 8 order: 67 R 4 U 1
+4 2 order: 72 L 1 U 2 L 1
+5 4 order: 91 D 2 U 4 D 1
+9 5 order: 102 D 3 R 1
+8 4 order: 113 L 1 R 1 D 2
+3 4 order: 119 R 3 L 3 U 3
+9 3 order: 127 U 2 D 5 R 2 L 3
+5 4 order: 131 D 2 U 3
+6 5 order: 135 R 2 L 1
+10 7 order: 142 R 1 D 4 R 2
+9 10 order: 167 D 3 R 6
+10 3 order: 168 D 4 L 1
+
+[6, 5]
+3 3 order: 2 U 3 L 2
+3 8 order: 3 L 1 U 3 R 4
+3 5 order: 5 D 4 U 7
+7 8 order: 24 U 3 R 3 D 4
+9 8 order: 28 D 4 R 3 U 1
+6 5 order: 30 U 5 D 5
+1 5 order: 47 U 5
+8 5 order: 53 D 4 U 3 D 1
+4 3 order: 72 L 1 U 2 L 1
+3 4 order: 85 L 2 U 3 R 1
+5 5 order: 91 D 2 U 4 D 1
+3 1 order: 98 U 3 L 4
+9 6 order: 102 D 3 R 1
+8 5 order: 113 L 1 R 1 D 2
+3 5 order: 119 R 3 L 3 U 3
+9 4 order: 127 U 2 D 5 R 2 L 3
+5 5 order: 131 D 2 U 3
+6 6 order: 135 R 2 L 1
+3 7 order: 160 R 2 U 3 R 1 L 1
+10 4 order: 168 D 4 L 1
+
+[6, 6]
+3 9 order: 3 L 1 U 3 R 4
+8 8 order: 15 L 3 R 5 D 2
+4 4 order: 72 L 1 U 2 L 1
+3 5 order: 85 L 2 U 3 R 1
+2 6 order: 99 L 1 D 1 U 5 R 1
+6 7 order: 135 R 2 L 1
+10 9 order: 142 R 1 D 4 R 2
+3 8 order: 160 R 2 U 3 R 1 L 1
+
+[6, 7]
+3 5 order: 2 U 3 L 2
+3 7 order: 5 D 4 U 7
+8 8 order: 7 U 2 D 4 R 1
+5 4 order: 20 L 4 U 1 R 1
+7 10 order: 24 U 3 R 3 D 4
+9 10 order: 28 D 4 R 3 U 1
+6 7 order: 30 U 5 D 5
+1 7 order: 47 U 5
+8 7 order: 53 D 4 U 3 D 1
+8 2 order: 55 L 4 R 1 D 2 L 2
+3 3 order: 73 L 4 U 4 D 1
+6 3 order: 79 L 4
+4 10 order: 81 U 2 R 3
+3 6 order: 85 L 2 U 3 R 1
+8 9 order: 87 U 2 D 3 R 2 D 1
+5 7 order: 91 D 2 U 4 D 1
+3 3 order: 98 U 3 L 4
+9 8 order: 102 D 3 R 1
+8 7 order: 113 L 1 R 1 D 2
+9 6 order: 127 U 2 D 5 R 2 L 3
+5 7 order: 131 D 2 U 3
+6 4 order: 134 L 4 R 3 L 2
+10 10 order: 142 R 1 D 4 R 2
+7 4 order: 156 D 4 L 3 U 3
+10 6 order: 168 D 4 L 1
+
+[6, 8]
+3 6 order: 2 U 3 L 2
+3 8 order: 5 D 4 U 7
+8 9 order: 7 U 2 D 4 R 1
+5 5 order: 20 L 4 U 1 R 1
+8 8 order: 53 D 4 U 3 D 1
+8 3 order: 55 L 4 R 1 D 2 L 2
+6 4 order: 79 L 4
+8 10 order: 87 U 2 D 3 R 2 D 1
+5 8 order: 91 D 2 U 4 D 1
+3 4 order: 98 U 3 L 4
+2 8 order: 99 L 1 D 1 U 5 R 1
+9 9 order: 102 D 3 R 1
+8 3 order: 104 L 5 D 2
+4 9 order: 106 U 4 R 1 U 1 D 3
+8 8 order: 113 L 1 R 1 D 2
+9 7 order: 127 U 2 D 5 R 2 L 3
+5 8 order: 131 D 2 U 3
+6 5 order: 134 L 4 R 3 L 2
+6 6 order: 148 L 5 R 3
+7 5 order: 156 D 4 L 3 U 3
+6 3 order: 163 L 5 U 1 D 1
+10 7 order: 168 D 4 L 1
+
+[6, 10]
+3 8 order: 2 U 3 L 2
+3 10 order: 5 D 4 U 7
+6 10 order: 30 U 5 D 5
+1 10 order: 47 U 5
+8 10 order: 53 D 4 U 3 D 1
+5 10 order: 91 D 2 U 4 D 1
+3 6 order: 98 U 3 L 4
+5 10 order: 131 D 2 U 3
+7 7 order: 156 D 4 L 3 U 3
+10 9 order: 168 D 4 L 1
+
+[7, 2]
+9 6 order: 57 D 2 R 4
+9 6 order: 61 D 2 R 4
+7 3 order: 135 R 2 L 1
+9 7 order: 152 D 2 R 5
+4 4 order: 160 R 2 U 3 R 1 L 1
+
+[7, 3]
+4 1 order: 2 U 3 L 2
+9 4 order: 7 U 2 D 4 R 1
+5 7 order: 23 U 2 R 4
+7 3 order: 30 U 5 D 5
+2 3 order: 47 U 5
+9 7 order: 57 D 2 R 4
+9 7 order: 61 D 2 R 4
+5 6 order: 81 U 2 R 3
+9 5 order: 87 U 2 D 3 R 2 D 1
+6 3 order: 91 D 2 U 4 D 1
+10 4 order: 102 D 3 R 1
+9 3 order: 113 L 1 R 1 D 2
+6 3 order: 131 D 2 U 3
+7 4 order: 135 R 2 L 1
+9 8 order: 152 D 2 R 5
+10 9 order: 167 D 3 R 6
+
+[7, 4]
+4 2 order: 2 U 3 L 2
+9 5 order: 7 U 2 D 4 R 1
+5 8 order: 23 U 2 R 4
+1 5 order: 40 R 1 U 6
+9 8 order: 57 D 2 R 4
+9 8 order: 61 D 2 R 4
+5 2 order: 72 L 1 U 2 L 1
+5 7 order: 81 U 2 R 3
+6 4 order: 91 D 2 U 4 D 1
+3 4 order: 99 L 1 D 1 U 5 R 1
+10 5 order: 102 D 3 R 1
+5 5 order: 106 U 4 R 1 U 1 D 3
+9 4 order: 113 L 1 R 1 D 2
+10 3 order: 127 U 2 D 5 R 2 L 3
+6 4 order: 131 D 2 U 3
+9 9 order: 152 D 2 R 5
+10 10 order: 167 D 3 R 6
+
+[7, 5]
+4 3 order: 2 U 3 L 2
+9 6 order: 7 U 2 D 4 R 1
+5 9 order: 23 U 2 R 4
+1 5 order: 27 U 6
+7 5 order: 30 U 5 D 5
+2 5 order: 47 U 5
+9 9 order: 57 D 2 R 4
+3 9 order: 58 L 2 U 4 R 6
+9 9 order: 61 D 2 R 4
+5 3 order: 72 L 1 U 2 L 1
+5 8 order: 81 U 2 R 3
+4 4 order: 85 L 2 U 3 R 1
+6 5 order: 91 D 2 U 4 D 1
+4 1 order: 98 U 3 L 4
+3 5 order: 99 L 1 D 1 U 5 R 1
+1 5 order: 101 U 6
+10 6 order: 102 D 3 R 1
+9 5 order: 113 L 1 R 1 D 2
+1 4 order: 118 U 6 L 1
+10 4 order: 127 U 2 D 5 R 2 L 3
+6 5 order: 131 D 2 U 3
+9 10 order: 152 D 2 R 5
+
+[7, 7]
+9 8 order: 7 U 2 D 4 R 1
+8 10 order: 24 U 3 R 3 D 4
+1 7 order: 27 U 6
+7 7 order: 30 U 5 D 5
+1 4 order: 44 U 6 L 3
+2 7 order: 47 U 5
+5 10 order: 81 U 2 R 3
+9 9 order: 87 U 2 D 3 R 2 D 1
+6 7 order: 91 D 2 U 4 D 1
+1 7 order: 101 U 6
+10 8 order: 102 D 3 R 1
+5 8 order: 106 U 4 R 1 U 1 D 3
+1 6 order: 118 U 6 L 1
+4 7 order: 119 R 3 L 3 U 3
+10 6 order: 127 U 2 D 5 R 2 L 3
+6 7 order: 131 D 2 U 3
+7 8 order: 135 R 2 L 1
+
+[7, 8]
+9 9 order: 7 U 2 D 4 R 1
+7 8 order: 30 U 5 D 5
+2 8 order: 47 U 5
+5 6 order: 72 L 1 U 2 L 1
+9 10 order: 87 U 2 D 3 R 2 D 1
+6 8 order: 91 D 2 U 4 D 1
+3 8 order: 99 L 1 D 1 U 5 R 1
+10 9 order: 102 D 3 R 1
+5 9 order: 106 U 4 R 1 U 1 D 3
+9 8 order: 113 L 1 R 1 D 2
+10 7 order: 127 U 2 D 5 R 2 L 3
+6 8 order: 131 D 2 U 3
+7 9 order: 135 R 2 L 1
+
+[7, 9]
+1 10 order: 40 R 1 U 6
+5 7 order: 72 L 1 U 2 L 1
+4 8 order: 85 L 2 U 3 R 1
+3 9 order: 99 L 1 D 1 U 5 R 1
+10 10 order: 102 D 3 R 1
+9 9 order: 113 L 1 R 1 D 2
+
+[7, 10]
+4 8 order: 2 U 3 L 2
+1 10 order: 27 U 6
+7 10 order: 30 U 5 D 5
+2 10 order: 47 U 5
+4 9 order: 85 L 2 U 3 R 1
+6 10 order: 91 D 2 U 4 D 1
+1 10 order: 101 U 6
+9 10 order: 113 L 1 R 1 D 2
+1 9 order: 118 U 6 L 1
+5 5 order: 122 U 5 L 5 D 3
+6 10 order: 131 D 2 U 3
+
+[8, 1]
+7 5 order: 67 R 4 U 1
+3 8 order: 117 R 4 U 6 R 3 D 1
+8 2 order: 135 R 2 L 1
+5 3 order: 160 R 2 U 3 R 1 L 1
+
+[8, 2]
+2 3 order: 40 R 1 U 6
+8 3 order: 135 R 2 L 1
+5 4 order: 160 R 2 U 3 R 1 L 1
+
+[8, 3]
+5 1 order: 2 U 3 L 2
+10 4 order: 7 U 2 D 4 R 1
+6 7 order: 23 U 2 R 4
+2 3 order: 27 U 6
+8 3 order: 30 U 5 D 5
+3 3 order: 47 U 5
+10 7 order: 57 D 2 R 4
+10 7 order: 61 D 2 R 4
+4 9 order: 64 U 3 R 1 L 1 R 7 U 1 L 1
+6 6 order: 81 U 2 R 3
+10 5 order: 87 U 2 D 3 R 2 D 1
+7 3 order: 91 D 2 U 4 D 1
+2 3 order: 101 U 6
+6 4 order: 106 U 4 R 1 U 1 D 3
+10 3 order: 113 L 1 R 1 D 2
+2 2 order: 118 U 6 L 1
+7 3 order: 131 D 2 U 3
+8 4 order: 135 R 2 L 1
+10 8 order: 152 D 2 R 5
+5 5 order: 160 R 2 U 3 R 1 L 1
+
+[8, 4]
+5 2 order: 2 U 3 L 2
+5 7 order: 3 L 1 U 3 R 4
+10 5 order: 7 U 2 D 4 R 1
+6 8 order: 23 U 2 R 4
+9 7 order: 24 U 3 R 3 D 4
+8 4 order: 30 U 5 D 5
+2 5 order: 40 R 1 U 6
+3 4 order: 47 U 5
+10 8 order: 57 D 2 R 4
+10 8 order: 61 D 2 R 4
+6 7 order: 81 U 2 R 3
+10 6 order: 87 U 2 D 3 R 2 D 1
+7 4 order: 91 D 2 U 4 D 1
+4 4 order: 99 L 1 D 1 U 5 R 1
+6 5 order: 106 U 4 R 1 U 1 D 3
+10 4 order: 113 L 1 R 1 D 2
+7 4 order: 131 D 2 U 3
+10 9 order: 152 D 2 R 5
+3 9 order: 162 R 1 U 6 R 4 D 1
+
+[8, 5]
+5 3 order: 2 U 3 L 2
+5 8 order: 3 L 1 U 3 R 4
+10 6 order: 7 U 2 D 4 R 1
+9 8 order: 24 U 3 R 3 D 4
+2 5 order: 27 U 6
+8 5 order: 30 U 5 D 5
+3 5 order: 47 U 5
+10 9 order: 57 D 2 R 4
+10 9 order: 61 D 2 R 4
+3 5 order: 63 U 7 D 2
+6 3 order: 72 L 1 U 2 L 1
+8 1 order: 79 L 4
+6 8 order: 81 U 2 R 3
+5 4 order: 85 L 2 U 3 R 1
+10 7 order: 87 U 2 D 3 R 2 D 1
+7 5 order: 91 D 2 U 4 D 1
+1 5 order: 94 U 7
+5 1 order: 98 U 3 L 4
+4 5 order: 99 L 1 D 1 U 5 R 1
+2 5 order: 101 U 6
+1 5 order: 105 U 7
+10 5 order: 113 L 1 R 1 D 2
+7 5 order: 131 D 2 U 3
+8 2 order: 134 L 4 R 3 L 2
+10 10 order: 152 D 2 R 5
+1 5 order: 153 U 7
+
+[8, 7]
+5 5 order: 2 U 3 L 2
+10 8 order: 7 U 2 D 4 R 1
+9 10 order: 24 U 3 R 3 D 4
+2 7 order: 27 U 6
+8 7 order: 30 U 5 D 5
+2 8 order: 40 R 1 U 6
+3 7 order: 47 U 5
+3 7 order: 63 U 7 D 2
+5 3 order: 65 D 1 L 4 U 4
+10 9 order: 87 U 2 D 3 R 2 D 1
+7 7 order: 91 D 2 U 4 D 1
+1 7 order: 94 U 7
+5 3 order: 98 U 3 L 4
+2 7 order: 101 U 6
+1 7 order: 105 U 7
+6 8 order: 106 U 4 R 1 U 1 D 3
+2 6 order: 118 U 6 L 1
+5 7 order: 119 R 3 L 3 U 3
+7 7 order: 131 D 2 U 3
+8 8 order: 135 R 2 L 1
+1 7 order: 153 U 7
+
+[8, 8]
+5 6 order: 2 U 3 L 2
+10 9 order: 7 U 2 D 4 R 1
+2 8 order: 27 U 6
+8 8 order: 30 U 5 D 5
+2 5 order: 44 U 6 L 3
+3 8 order: 47 U 5
+5 4 order: 65 D 1 L 4 U 4
+6 6 order: 72 L 1 U 2 L 1
+10 10 order: 87 U 2 D 3 R 2 D 1
+7 8 order: 91 D 2 U 4 D 1
+5 4 order: 98 U 3 L 4
+4 8 order: 99 L 1 D 1 U 5 R 1
+2 8 order: 101 U 6
+10 8 order: 113 L 1 R 1 D 2
+2 7 order: 118 U 6 L 1
+6 3 order: 122 U 5 L 5 D 3
+7 8 order: 131 D 2 U 3
+8 9 order: 135 R 2 L 1
+
+[8, 9]
+2 10 order: 40 R 1 U 6
+5 5 order: 65 D 1 L 4 U 4
+6 7 order: 72 L 1 U 2 L 1
+5 8 order: 85 L 2 U 3 R 1
+4 9 order: 99 L 1 D 1 U 5 R 1
+10 9 order: 113 L 1 R 1 D 2
+7 9 order: 131 D 2 U 3
+
+[8, 10]
+1 5 order: 1 U 6 L 5 U 1
+5 8 order: 2 U 3 L 2
+2 10 order: 27 U 6
+8 10 order: 30 U 5 D 5
+2 7 order: 44 U 6 L 3
+3 10 order: 47 U 5
+3 10 order: 63 U 7 D 2
+5 9 order: 85 L 2 U 3 R 1
+7 10 order: 91 D 2 U 4 D 1
+1 10 order: 94 U 7
+5 6 order: 98 U 3 L 4
+2 10 order: 101 U 6
+1 10 order: 105 U 7
+10 10 order: 113 L 1 R 1 D 2
+2 9 order: 118 U 6 L 1
+6 5 order: 122 U 5 L 5 D 3
+7 10 order: 131 D 2 U 3
+1 10 order: 153 U 7
+
+[9, 1]
+8 9 order: 4 R 8 U 1
+9 4 order: 11 R 5 L 3 R 1
+8 8 order: 29 R 7 U 1
+10 10 order: 32 R 9 D 1
+10 6 order: 37 R 5 D 1
+9 9 order: 49 R 8
+8 5 order: 67 R 4 U 1
+9 10 order: 97 R 9
+4 8 order: 117 R 4 U 6 R 3 D 1
+9 8 order: 125 R 7 L 2 R 2
+9 2 order: 135 R 2 L 1
+10 7 order: 143 R 8 L 3 R 1 D 1
+8 8 order: 147 R 8 U 1 L 1
+9 7 order: 151 R 6
+7 7 order: 155 R 6 U 3 D 1
+8 8 order: 157 R 7 U 1
+6 3 order: 160 R 2 U 3 R 1 L 1
+10 9 order: 164 R 8 D 1
+9 10 order: 171 R 9
+
+[9, 2]
+8 10 order: 4 R 8 U 1
+9 5 order: 11 R 5 L 3 R 1
+8 9 order: 29 R 7 U 1
+10 7 order: 37 R 5 D 1
+3 3 order: 40 R 1 U 6
+9 10 order: 49 R 8
+4 8 order: 59 R 5 U 5 R 1
+7 5 order: 81 U 2 R 3
+9 9 order: 125 R 7 L 2 R 2
+9 3 order: 135 R 2 L 1
+4 7 order: 140 R 5 U 5 R 1 L 1
+10 8 order: 143 R 8 L 3 R 1 D 1
+8 9 order: 147 R 8 U 1 L 1
+9 8 order: 151 R 6
+7 8 order: 155 R 6 U 3 D 1
+8 9 order: 157 R 7 U 1
+6 4 order: 160 R 2 U 3 R 1 L 1
+4 7 order: 162 R 1 U 6 R 4 D 1
+10 10 order: 164 R 8 D 1
+10 7 order: 173 R 5 U 2 D 3
+
+[9, 3]
+3 1 order: 9 R 4 U 6 L 6
+9 6 order: 11 R 5 L 3 R 1
+3 3 order: 27 U 6
+8 10 order: 29 R 7 U 1
+9 3 order: 30 U 5 D 5
+10 8 order: 37 R 5 D 1
+3 4 order: 40 R 1 U 6
+4 3 order: 47 U 5
+4 9 order: 59 R 5 U 5 R 1
+4 3 order: 63 U 7 D 2
+8 7 order: 67 R 4 U 1
+2 3 order: 94 U 7
+3 3 order: 101 U 6
+2 3 order: 105 U 7
+7 4 order: 106 U 4 R 1 U 1 D 3
+4 10 order: 117 R 4 U 6 R 3 D 1
+3 2 order: 118 U 6 L 1
+6 3 order: 119 R 3 L 3 U 3
+9 10 order: 125 R 7 L 2 R 2
+9 4 order: 135 R 2 L 1
+4 8 order: 140 R 5 U 5 R 1 L 1
+9 9 order: 151 R 6
+2 3 order: 153 U 7
+8 10 order: 157 R 7 U 1
+6 5 order: 160 R 2 U 3 R 1 L 1
+4 8 order: 162 R 1 U 6 R 4 D 1
+10 8 order: 173 R 5 U 2 D 3
+
+[9, 4]
+6 7 order: 3 L 1 U 3 R 4
+3 2 order: 9 R 4 U 6 L 6
+9 7 order: 11 R 5 L 3 R 1
+10 7 order: 24 U 3 R 3 D 4
+3 4 order: 27 U 6
+9 4 order: 30 U 5 D 5
+10 9 order: 37 R 5 D 1
+3 5 order: 40 R 1 U 6
+3 1 order: 44 U 6 L 3
+4 4 order: 47 U 5
+8 8 order: 67 R 4 U 1
+7 2 order: 72 L 1 U 2 L 1
+5 4 order: 99 L 1 D 1 U 5 R 1
+3 4 order: 101 U 6
+7 5 order: 106 U 4 R 1 U 1 D 3
+3 3 order: 118 U 6 L 1
+6 4 order: 119 R 3 L 3 U 3
+9 5 order: 135 R 2 L 1
+9 10 order: 151 R 6
+7 10 order: 155 R 6 U 3 D 1
+4 9 order: 162 R 1 U 6 R 4 D 1
+10 9 order: 173 R 5 U 2 D 3
+
+[9, 5]
+6 3 order: 2 U 3 L 2
+6 8 order: 3 L 1 U 3 R 4
+9 8 order: 11 R 5 L 3 R 1
+8 2 order: 20 L 4 U 1 R 1
+10 8 order: 24 U 3 R 3 D 4
+3 5 order: 27 U 6
+9 5 order: 30 U 5 D 5
+10 10 order: 37 R 5 D 1
+1 4 order: 39 U 8 L 1
+3 2 order: 44 U 6 L 3
+4 5 order: 47 U 5
+5 9 order: 58 L 2 U 4 R 6
+4 5 order: 63 U 7 D 2
+8 9 order: 67 R 4 U 1
+7 3 order: 72 L 1 U 2 L 1
+9 1 order: 79 L 4
+6 4 order: 85 L 2 U 3 R 1
+2 5 order: 94 U 7
+5 5 order: 99 L 1 D 1 U 5 R 1
+3 5 order: 101 U 6
+2 5 order: 105 U 7
+3 4 order: 118 U 6 L 1
+6 5 order: 119 R 3 L 3 U 3
+9 2 order: 134 L 4 R 3 L 2
+9 6 order: 135 R 2 L 1
+2 5 order: 153 U 7
+6 7 order: 160 R 2 U 3 R 1 L 1
+10 10 order: 173 R 5 U 2 D 3
+
+[9, 6]
+3 4 order: 9 R 4 U 6 L 6
+8 3 order: 20 L 4 U 1 R 1
+3 7 order: 40 R 1 U 6
+5 10 order: 58 L 2 U 4 R 6
+8 10 order: 67 R 4 U 1
+7 4 order: 72 L 1 U 2 L 1
+9 2 order: 79 L 4
+6 5 order: 85 L 2 U 3 R 1
+5 6 order: 99 L 1 D 1 U 5 R 1
+9 3 order: 134 L 4 R 3 L 2
+9 7 order: 135 R 2 L 1
+9 4 order: 148 L 5 R 3
+9 1 order: 163 L 5 U 1 D 1
+
+[9, 7]
+2 2 order: 1 U 6 L 5 U 1
+6 5 order: 2 U 3 L 2
+9 1 order: 6 L 6
+8 4 order: 20 L 4 U 1 R 1
+3 7 order: 27 U 6
+9 7 order: 30 U 5 D 5
+1 6 order: 39 U 8 L 1
+3 8 order: 40 R 1 U 6
+3 4 order: 44 U 6 L 3
+4 7 order: 47 U 5
+7 4 order: 56 L 6 R 4 U 2 L 1
+4 7 order: 63 U 7 D 2
+6 3 order: 65 D 1 L 4 U 4
+6 3 order: 73 L 4 U 4 D 1
+9 3 order: 79 L 4
+7 10 order: 81 U 2 R 3
+6 6 order: 85 L 2 U 3 R 1
+2 7 order: 94 U 7
+6 3 order: 98 U 3 L 4
+3 7 order: 101 U 6
+2 7 order: 105 U 7
+7 8 order: 106 U 4 R 1 U 1 D 3
+3 6 order: 118 U 6 L 1
+6 7 order: 119 R 3 L 3 U 3
+9 4 order: 134 L 4 R 3 L 2
+9 8 order: 135 R 2 L 1
+9 5 order: 148 L 5 R 3
+2 7 order: 153 U 7
+9 2 order: 163 L 5 U 1 D 1
+9 4 order: 165 L 6 R 4 L 1
+
+[9, 8]
+2 3 order: 1 U 6 L 5 U 1
+6 6 order: 2 U 3 L 2
+9 2 order: 6 L 6
+8 5 order: 20 L 4 U 1 R 1
+3 8 order: 27 U 6
+9 8 order: 30 U 5 D 5
+3 5 order: 44 U 6 L 3
+4 8 order: 47 U 5
+9 2 order: 60 R 1 L 4 R 1 L 5 R 1
+4 8 order: 63 U 7 D 2
+6 4 order: 65 D 1 L 4 U 4
+6 4 order: 73 L 4 U 4 D 1
+9 4 order: 79 L 4
+4 3 order: 86 L 5 U 5
+2 8 order: 94 U 7
+6 4 order: 98 U 3 L 4
+5 8 order: 99 L 1 D 1 U 5 R 1
+3 8 order: 101 U 6
+2 8 order: 105 U 7
+3 7 order: 118 U 6 L 1
+9 5 order: 134 L 4 R 3 L 2
+9 9 order: 135 R 2 L 1
+9 6 order: 148 L 5 R 3
+2 8 order: 153 U 7
+9 3 order: 161 L 7 R 2
+9 3 order: 163 L 5 U 1 D 1
+9 5 order: 165 L 6 R 4 L 1
+
+[9, 9]
+9 3 order: 6 L 6
+3 10 order: 40 R 1 U 6
+8 1 order: 43 L 8 U 1
+9 3 order: 60 R 1 L 4 R 1 L 5 R 1
+6 5 order: 65 D 1 L 4 U 4
+7 7 order: 72 L 1 U 2 L 1
+6 5 order: 73 L 4 U 4 D 1
+9 5 order: 79 L 4
+6 8 order: 85 L 2 U 3 R 1
+4 4 order: 86 L 5 U 5
+5 9 order: 99 L 1 D 1 U 5 R 1
+7 3 order: 111 L 7 U 2 R 1
+9 6 order: 134 L 4 R 3 L 2
+9 7 order: 148 L 5 R 3
+9 4 order: 161 L 7 R 2
+9 4 order: 163 L 5 U 1 D 1
+9 6 order: 165 L 6 R 4 L 1
+
+[9, 10]
+2 5 order: 1 U 6 L 5 U 1
+9 4 order: 6 L 6
+10 1 order: 16 L 8 U 1 L 1 D 2
+9 2 order: 22 L 9 R 2 L 1
+3 10 order: 27 U 6
+9 10 order: 30 U 5 D 5
+1 9 order: 39 U 8 L 1
+8 2 order: 43 L 8 U 1
+3 7 order: 44 U 6 L 3
+4 10 order: 47 U 5
+7 7 order: 56 L 6 R 4 U 2 L 1
+4 10 order: 63 U 7 D 2
+7 8 order: 72 L 1 U 2 L 1
+9 6 order: 79 L 4
+4 5 order: 86 L 5 U 5
+2 10 order: 94 U 7
+4 1 order: 95 U 6 L 9 D 1
+3 10 order: 101 U 6
+2 10 order: 105 U 7
+7 4 order: 111 L 7 U 2 R 1
+3 9 order: 118 U 6 L 1
+9 1 order: 126 L 9
+9 7 order: 134 L 4 R 3 L 2
+9 8 order: 148 L 5 R 3
+2 10 order: 153 U 7
+9 5 order: 161 L 7 R 2
+9 5 order: 163 L 5 U 1 D 1
+9 7 order: 165 L 6 R 4 L 1
+
+[10, 1]
+8 5 order: 23 U 2 R 4
+8 4 order: 81 U 2 R 3
+
+[10, 3]
+10 6 order: 11 R 5 L 3 R 1
+4 3 order: 27 U 6
+9 10 order: 29 R 7 U 1
+10 3 order: 30 U 5 D 5
+2 2 order: 39 U 8 L 1
+4 4 order: 40 R 1 U 6
+5 3 order: 47 U 5
+5 9 order: 59 R 5 U 5 R 1
+5 3 order: 63 U 7 D 2
+9 7 order: 67 R 4 U 1
+3 3 order: 94 U 7
+4 3 order: 101 U 6
+3 3 order: 105 U 7
+8 4 order: 106 U 4 R 1 U 1 D 3
+5 10 order: 117 R 4 U 6 R 3 D 1
+4 2 order: 118 U 6 L 1
+7 3 order: 119 R 3 L 3 U 3
+10 10 order: 125 R 7 L 2 R 2
+1 2 order: 132 U 7 L 1 U 2
+10 4 order: 135 R 2 L 1
+5 8 order: 140 R 5 U 5 R 1 L 1
+10 9 order: 151 R 6
+3 3 order: 153 U 7
+8 9 order: 155 R 6 U 3 D 1
+9 10 order: 157 R 7 U 1
+
+[10, 4]
+7 2 order: 2 U 3 L 2
+10 7 order: 11 R 5 L 3 R 1
+4 4 order: 27 U 6
+10 4 order: 30 U 5 D 5
+4 5 order: 40 R 1 U 6
+4 1 order: 44 U 6 L 3
+5 4 order: 47 U 5
+5 4 order: 63 U 7 D 2
+9 8 order: 67 R 4 U 1
+8 2 order: 72 L 1 U 2 L 1
+3 4 order: 94 U 7
+4 4 order: 101 U 6
+3 4 order: 105 U 7
+8 5 order: 106 U 4 R 1 U 1 D 3
+4 3 order: 118 U 6 L 1
+7 4 order: 119 R 3 L 3 U 3
+10 5 order: 135 R 2 L 1
+10 10 order: 151 R 6
+3 4 order: 153 U 7
+8 10 order: 155 R 6 U 3 D 1
+
+[10, 5]
+7 3 order: 2 U 3 L 2
+10 8 order: 11 R 5 L 3 R 1
+4 5 order: 27 U 6
+10 5 order: 30 U 5 D 5
+4 2 order: 44 U 6 L 3
+5 5 order: 47 U 5
+5 5 order: 63 U 7 D 2
+9 9 order: 67 R 4 U 1
+8 3 order: 72 L 1 U 2 L 1
+7 4 order: 85 L 2 U 3 R 1
+3 5 order: 94 U 7
+4 5 order: 101 U 6
+3 5 order: 105 U 7
+4 4 order: 118 U 6 L 1
+7 5 order: 119 R 3 L 3 U 3
+10 6 order: 135 R 2 L 1
+3 5 order: 153 U 7
+7 7 order: 160 R 2 U 3 R 1 L 1
+
+[10, 6]
+4 7 order: 40 R 1 U 6
+9 10 order: 67 R 4 U 1
+8 4 order: 72 L 1 U 2 L 1
+7 5 order: 85 L 2 U 3 R 1
+10 7 order: 135 R 2 L 1
+7 8 order: 160 R 2 U 3 R 1 L 1
+
+[10, 7]
+9 4 order: 20 L 4 U 1 R 1
+4 7 order: 27 U 6
+10 7 order: 30 U 5 D 5
+2 6 order: 39 U 8 L 1
+4 8 order: 40 R 1 U 6
+5 7 order: 47 U 5
+5 7 order: 63 U 7 D 2
+7 3 order: 73 L 4 U 4 D 1
+1 10 order: 74 U 8 R 3 U 1
+10 3 order: 79 L 4
+8 10 order: 81 U 2 R 3
+3 7 order: 94 U 7
+4 7 order: 101 U 6
+3 7 order: 105 U 7
+8 8 order: 106 U 4 R 1 U 1 D 3
+7 7 order: 119 R 3 L 3 U 3
+1 6 order: 132 U 7 L 1 U 2
+10 4 order: 134 L 4 R 3 L 2
+10 8 order: 135 R 2 L 1
+3 7 order: 153 U 7
+7 9 order: 160 R 2 U 3 R 1 L 1
+
+[10, 8]
+9 5 order: 20 L 4 U 1 R 1
+4 8 order: 27 U 6
+10 8 order: 30 U 5 D 5
+2 7 order: 39 U 8 L 1
+5 8 order: 47 U 5
+5 8 order: 63 U 7 D 2
+7 4 order: 73 L 4 U 4 D 1
+10 4 order: 79 L 4
+5 3 order: 86 L 5 U 5
+3 8 order: 94 U 7
+4 8 order: 101 U 6
+3 8 order: 105 U 7
+4 7 order: 118 U 6 L 1
+8 3 order: 122 U 5 L 5 D 3
+1 7 order: 132 U 7 L 1 U 2
+10 5 order: 134 L 4 R 3 L 2
+10 9 order: 135 R 2 L 1
+10 6 order: 148 L 5 R 3
+3 8 order: 153 U 7
+10 3 order: 163 L 5 U 1 D 1
+
+[10, 9]
+7 7 order: 2 U 3 L 2
+10 3 order: 6 L 6
+9 6 order: 20 L 4 U 1 R 1
+4 10 order: 40 R 1 U 6
+8 7 order: 72 L 1 U 2 L 1
+7 5 order: 73 L 4 U 4 D 1
+10 5 order: 79 L 4
+7 8 order: 85 L 2 U 3 R 1
+5 4 order: 86 L 5 U 5
+10 6 order: 134 L 4 R 3 L 2
+10 7 order: 148 L 5 R 3
+10 4 order: 163 L 5 U 1 D 1
+10 6 order: 165 L 6 R 4 L 1
+
+[10, 10]
+7 8 order: 2 U 3 L 2
+10 4 order: 6 L 6
+9 7 order: 20 L 4 U 1 R 1
+4 10 order: 27 U 6
+10 10 order: 30 U 5 D 5
+2 9 order: 39 U 8 L 1
+4 7 order: 44 U 6 L 3
+5 10 order: 47 U 5
+8 7 order: 56 L 6 R 4 U 2 L 1
+5 10 order: 63 U 7 D 2
+8 8 order: 72 L 1 U 2 L 1
+10 6 order: 79 L 4
+7 9 order: 85 L 2 U 3 R 1
+5 5 order: 86 L 5 U 5
+3 10 order: 94 U 7
+4 10 order: 101 U 6
+3 10 order: 105 U 7
+8 4 order: 111 L 7 U 2 R 1
+4 9 order: 118 U 6 L 1
+8 5 order: 122 U 5 L 5 D 3
+1 9 order: 132 U 7 L 1 U 2
+10 7 order: 134 L 4 R 3 L 2
+10 8 order: 148 L 5 R 3
+3 10 order: 153 U 7
+10 5 order: 161 L 7 R 2
+10 5 order: 163 L 5 U 1 D 1
+10 7 order: 165 L 6 R 4 L 1
+
