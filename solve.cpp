@@ -53,12 +53,28 @@ template<typename T> inline bool chmax(T &a, T b) { if (a < b) { a = b; return 1
 template<typename T> inline bool chmin(T &a, T b) { if (a > b) { a = b; return 1; } return 0; }
 #pragma endregion
 
-struct Graph {
+class Cumsum2d {
+    int h, w;
+    vvi data;
+public:
+    Cumsum2d(int h, int w) : h(h), w(w), data(h+1, vi(w+1)) {}
+  
+    void build(vvi &s) {
+        rep(i, h) rep(j, w) {
+            data[i+1][j+1] += data[i][j+1] + data[i+1][j] - data[i][j] + s[i][j];
+        }
+    }
+    int query(int y1, int x1, int y2, int x2) {
+        return data[y2][x2] - data[y1][x2] - data[y2][x1] + data[y1][x1];
+    }
+};
+
+class Graph {
     int h, w, n;
     vector<vector<pi>> g;
-    Graph(int h, int w) : h(h), w(w), n(h*w) {
-        g = vector<vector<pi>>(n);
-    }
+public:
+    Graph(int h, int w) : h(h), w(w), n(h*w), g(n) {}
+    
     void add(int sy, int sx, int ty, int tx) {
         g[sy*w+sx].push_back({ty, tx});
     }
@@ -74,7 +90,7 @@ map<char, pi> c2dir =
 
 int N, M;
 vvi board, reach;
-vector<string> S;
+vector<vector<pair<char, int>>> orders;
 
 void check_reachable(vvi &r) {
     queue<pi> q;
@@ -91,13 +107,15 @@ void check_reachable(vvi &r) {
     }
 }
 
-pi check_order(int y, int x, string &order) {
+pi check_order(int y, int x, vector<pair<char, int>> &order, Cumsum2d &cs) {
     if (board[y][x]) return {-1, -1};
-    for (char d: order) {
+    for (auto [d, val]: order) {
         auto [dy, dx] = c2dir[d];
-        y += dy, x += dx;
-        if (y < 0 or x < 0 or y >= N or x >= N) return {-1, -1};
-        if (board[y][x]) return {-1, -1};
+        dy *= val, dx *= val;
+        int ny = y+dy, nx = x+dx;
+        if (ny < 0 or nx < 0 or ny >= N or nx >= N) return {-1, -1};
+        if (cs.query(min(y, ny), min(x, nx), max(y, ny)+1, max(x, nx)+1)) return {-1, -1};
+        y = ny, x = nx;
     }
     return {y, x};
 }
@@ -106,14 +124,24 @@ void solve() {
     reach = vvi(N, vi(N));
     check_reachable(reach);
     
+    Cumsum2d cs(N, N);
+    cs.build(board);
+    
     Graph graph = Graph(N, N);
     rep(i, N) rep(j, N) {
         if (!reach[i][j]) continue;
-        for (string &order: S) {
-            auto [ni, nj] = check_order(i, j, order);
+        for (vector<pair<char, int>> &order: orders) {
+            auto [ni, nj] = check_order(i, j, order, cs);
             if (ni != -1) graph.add(i, j, ni, nj);
         }
     }
+    /*
+    rep(i, N) rep(j, N) {
+        print(i, j);
+        print(graph.get(i, j));
+        print("---");
+    }
+    */
     
     vvi reach_all_order(N, vi(N));
     queue<pi> q;
@@ -127,9 +155,10 @@ void solve() {
             q.push({ny, nx});
         }
     }
-    
-    //rep(i, N) print(reach[i]);
-    //rep(i, N) print(reach_all_order[i]);
+    /*    
+    rep(i, N) print(reach[i]);
+    rep(i, N) print(reach_all_order[i]);
+    */
     
     bool yesno = true;
     rep(i, N) {
@@ -154,8 +183,23 @@ void input() {
         board[y-1][x-1] = 1;
     }
     cin >> M;
-    S = vector<string>(M);
-    cin >> S;
+    rep(i, M) {
+        string s; cin >> s;
+        vector<pair<char, int>> order;
+        char cur = s[0];
+        int cnt = 0;
+        for (char c: s) {
+            if (c == cur) cnt++;
+            else {
+                order.push_back({cur, cnt});
+                cur = c;
+                cnt = 1;
+            }
+        }
+        order.push_back({cur, cnt});
+        orders.push_back(order);
+    }
+    
 }
 
 int main() {
