@@ -2,6 +2,7 @@
 #include <vector>
 #include <string>
 #include <queue>
+#include <chrono>
 
 #define N_MIN 2
 #define N_MAX 250
@@ -9,7 +10,17 @@
 #define M_MAX 2000
 #define INF 1001001001
 
-/**/using namespace std;
+//**/using namespace std;
+
+struct timer {
+    int ti;
+    void reset() {
+        ti = std::clock();
+    }
+    void elapsed() const {
+        std::cout << "Execution Time: " << 1.0 * (std::clock() - ti) / CLOCKS_PER_SEC << "sec" << std::endl;
+    }
+};
 
 int N, M;
 int y[N_MAX], x[N_MAX];
@@ -100,22 +111,22 @@ bool check(int i, int j, std::string t) {
         if (t[k] == 'R') {
             nj += (t[k + 1] - '0');
             if (0 <= i && i < N && 0 <= j && j < N && 0 <= nj && nj < N) {
-                w = CS_R[nj] - (j > 0 ? CS_R[j - 1] : 0);
+                w = CS_R[ni][nj] - (j > 0 ? CS_R[ni][j - 1] : 0);
             }
         } else if (t[k] == 'L') {
             nj -= (t[k + 1] - '0');
             if (0 <= i && i < N && 0 <= j && j < N && 0 <= nj && nj < N) {
-                w = CS_R[j] - (nj > 0 ? CS_R[nj - 1] : 0);
+                w = CS_R[ni][j] - (nj > 0 ? CS_R[ni][nj - 1] : 0);
             }
         } else if (t[k] == 'U') {
             ni -= (t[k + 1] - '0');
             if (0 <= i && i < N && 0 <= j && j < N && 0 <= ni && ni < N) {
-                w = CS_R[i] - (ni > 0 ? CS_R[ni - 1] : 0);
+                w = CS_C[i][nj] - (ni > 0 ? CS_C[ni - 1][nj] : 0);
             }
         } else {
             ni += (t[k + 1] - '0');
             if (0 <= i && i < N && 0 <= j && j < N && 0 <= ni && ni < N) {
-                w = CS_R[ni] - (i > 0 ? CS_R[i - 1] : 0);
+                w = CS_C[ni][nj] - (i > 0 ? CS_C[i - 1][nj] : 0);
             }
         }
         if (w != 0) return false;
@@ -195,7 +206,11 @@ void solve() {
 }
 
 int main() {
+    //**/timer ti;
+
     input();
     solve();
     output();
+
+    //**/ti.elapsed();
 }
