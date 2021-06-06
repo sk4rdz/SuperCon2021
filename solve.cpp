@@ -1,211 +1,210 @@
-#pragma region my_template
-#include <bits/stdc++.h>
+#include <iostream>
+#include <vector>
+#include <string>
+#include <queue>
+
+#define N_MIN 2
+#define N_MAX 250
+#define M_MIN 1
+#define M_MAX 2000
+#define INF 1001001001
 
 using namespace std;
-using ll = long long;
-using pi = pair<int, int>;
-using pl = pair<ll, ll>;
-using vi = vector<int>;
-using vvi = vector<vi>;
-using vl = vector<ll>;
-using vvl = vector<vl>;
-
-#define range(i, l, r) for(int i = (int)(l); i < (int)(r); i++)
-#define rrange(i, l, r) for(int i = (int)(r)-1; i >= (int)(l); i--)
-#define rep(i, n) range(i, 0, n)
-#define rrep(i, n) rrange(i, 0, n)
-#define len(a) ((int)(a).size())
-#define all(a) (a).begin(), (a).end()
-#define rall(a) (a).rbegin(), (a).rend()
-#define uni(a) (a).erase(unique(all(a)), (a).end());
-
-constexpr int INF = 1e9;
-constexpr ll LINF = 1e18;
-
-template<typename T>
-istream &operator >> (istream &in, vector<T> &a){
-    for(T &x: a) in >> x;
-    return in;
-}
-template<typename T, typename U>
-istream &operator >> (istream &in, pair<T, U> &a){
-    in >> a.first >> a.second;
-    return in;
-}
-template<typename T>
-ostream &operator << (ostream &out, const vector<T> &a) {
-    rep(i, len(a)) out << a[i] << (i == len(a)-1 ? "" : " ");
-    return out;
-}
-template<typename T, typename U>
-ostream &operator << (ostream &out, const pair<T, U> &a){
-    out << a.first << " " << a.second;
-    return out;
-}
-inline void print() { cout << "\n"; }
-template <typename T, typename ...U>
-inline void print(const T &t, const U &...u) {
-    cout << t;
-    if (sizeof...(u)) cout << " ";
-    print(u...);
-}
-template<typename T> inline bool chmax(T &a, T b) { if (a < b) { a = b; return 1; } return 0; }
-template<typename T> inline bool chmin(T &a, T b) { if (a > b) { a = b; return 1; } return 0; }
-#pragma endregion
-
-class Cumsum2d {
-    int h, w;
-    vvi data;
-public:
-    Cumsum2d(int h, int w) : h(h), w(w), data(h+1, vi(w+1)) {}
-  
-    void build(vvi &s) {
-        rep(i, h) rep(j, w) {
-            data[i+1][j+1] += data[i][j+1] + data[i+1][j] - data[i][j] + s[i][j];
-        }
-    }
-    int query(int y1, int x1, int y2, int x2) {
-        return data[y2][x2] - data[y1][x2] - data[y2][x1] + data[y1][x1];
-    }
-};
-
-class Graph {
-    int h, w, n;
-    vector<vector<pi>> g;
-public:
-    Graph(int h, int w) : h(h), w(w), n(h*w), g(n) {}
-    
-    void add(int sy, int sx, int ty, int tx) {
-        g[sy*w+sx].push_back({ty, tx});
-    }
-    vector<pi> &get(int y, int x) {
-        return g[y*w+x];
-    }
-};
-
-vector<pi> dir = {{-1, 0}, {0, -1}, {1, 0}, {0, 1}};
-map<char, pi> c2dir =
-    {{'U', {-1, 0}}, {'L', {0, -1}},
-     {'D', {1, 0}}, {'R', {0, 1}}};
 
 int N, M;
-vvi board, reach;
-vector<vector<pair<char, int>>> orders;
+int y[N_MAX], x[N_MAX];
+std::string S[M_MAX], T[M_MAX];
 
-void check_reachable(vvi &r) {
-    queue<pi> q;
-    r[0][0] = 1;
-    q.push({0, 0});
-    while (!q.empty()) {
-        auto [y, x] = q.front(); q.pop();
-        for (auto [dy, dx]: dir) {
-            int ny = y+dy, nx = x+dx;
-            if (ny < 0 or nx < 0 or ny >= N or nx >= N or board[ny][nx] or r[ny][nx]) continue;
-            r[ny][nx] = 1;
-            q.push({ny, nx});
+int K;
+int VS[N_MAX];
+bool YN;
+
+int dy[4] = { -1, 0, 1, 0 }, dx[4] = { 0, 1, 0, -1 };
+bool block[N_MAX][N_MAX];
+int CS_R[N_MAX][N_MAX], CS_C[N_MAX][N_MAX];
+std::pair<int, int> mv[M_MAX];
+std::vector<std::pair<int, int>> G[N_MAX][N_MAX];
+
+void input() {
+    std::cin >> N;
+    for (int i = 0; i < N; i++) {
+        std::cin >> y[i] >> x[i];
+        y[i]--, x[i]--;
+        block[y[i]][x[i]] = true;
+        CS_R[y[i]][x[i]]++;
+        CS_C[y[i]][x[i]]++;
+    }
+    std::cin >> M;
+    for (int i = 0; i < M; i++) {
+        std::cin >> S[i];
+        for (int j = 0; j < S[i].size(); j++) {
+            if (S[i][j] == 'R') {
+                mv[i].second++;
+            } else if (S[i][j] == 'L') {
+                mv[i].second--;
+            } else if (S[i][j] == 'U') {
+                mv[i].first--;
+            } else {
+                mv[i].first++;
+            }
         }
     }
 }
 
-pi check_order(int y, int x, vector<pair<char, int>> &order, Cumsum2d &cs) {
-    if (board[y][x]) return {-1, -1};
-    for (auto [d, val]: order) {
-        auto [dy, dx] = c2dir[d];
-        dy *= val, dx *= val;
-        int ny = y+dy, nx = x+dx;
-        if (ny < 0 or nx < 0 or ny >= N or nx >= N) return {-1, -1};
-        if (cs.query(min(y, ny), min(x, nx), max(y, ny)+1, max(x, nx)+1)) return {-1, -1};
-        y = ny, x = nx;
+void output() {
+    if (!YN) {
+        std::cout << "NO" << std::endl;
+        return;
     }
-    return {y, x};
+    std::cout << "YES\n" << K << '\n';
+    for (int i = 0; i < K; i++) {
+        if (i > 0) std::cout << ' ';
+        std::cout << VS[i];
+    }
+    std::cout << std::endl;
+}
+
+void c_sum() {
+    for (int i = 0; i < N; i++) {
+        for (int j = 0; j < N - 1; j++) {
+            CS_R[i][j + 1] += CS_R[i][j];
+        }
+    }
+    for (int i = 0; i < N - 1; i++) {
+        for (int j = 0; j < N; j++) {
+            CS_C[i + 1][j] += CS_C[i][j];
+        }
+    }
+}
+
+void compress() {
+    for (int i = 0; i < M; i++) {
+        for (int j = 0; j < S[i].size(); j++) {
+            char c = S[i][j];
+            int sz = T[i].size();
+            if (sz > 1 && c == T[i][sz - 2]) {
+                int val = (T[i][sz - 1] - '0') + 1;
+                T[i][sz - 1] = val + '0';
+            } else {
+                T[i] += c;
+                T[i] += '1';
+            }
+        }
+    }
+}
+
+int conversion(int i, int j) {
+    return i * N + j;
+}
+
+std::pair<int, int> conversion(int n) {
+    return std::make_pair(n / N, n % N);
+}
+
+bool check(int i, int j, std::string t) {
+    for (int k = 0; k < t.size(); k += 2) {
+        int w = INF;
+        int ni = i, nj = j;
+        if (t[k] == 'R') {
+            nj += (t[k + 1] - '0');
+            if (0 <= i && i < N && 0 <= j && j < N && 0 <= nj && nj <= N) {
+                w = CS_R[nj] - (j > 0 ? CS_R[j - 1] : 0);
+            }
+        } else if (t[k] == 'L') {
+            nj -= (t[k + 1] - '0');
+            if (0 <= i && i < N && 0 <= j && j < N && 0 <= nj && nj <= N) {
+                w = CS_R[j] - (nj > 0 ? CS_R[nj - 1] : 0);
+            }
+        } else if (t[k] == 'U') {
+            ni -= (t[k + 1] - '0');
+            if (0 <= i && i < N && 0 <= j && j < N && 0 <= ni && ni <= N) {
+                w = CS_R[ni] - (i > 0 ? CS_R[i - 1] : 0);
+            }
+        } else {
+            ni += (t[k + 1] - '0');
+            if (0 <= i && i < N && 0 <= j && j < N && 0 <= ni && ni <= N) {
+                w = CS_R[i] - (ni > 0 ? CS_R[ni - 1] : 0);
+            }
+        }
+        if (w == INF) return false;
+        i = ni, j = nj;
+    }
+
+    return true;
+}
+
+std::vector<std::vector<int>> bfs(bool flag) {
+    std::vector<std::vector<int>> dist(N, std::vector<int>(N, INF));
+    dist[0][0] = 0;
+    std::queue<std::pair<int, int>> que;
+    que.emplace(std::make_pair(0, 0));
+    if (!flag) {
+        while (!que.empty()) {
+            std::pair<int, int> p = que.front();
+            que.pop();
+            for (int i = 0; i < 4; i++) {
+                int ny = p.first + dy[i], nx = p.second + dx[i];
+                if (0 <= ny && ny < N && 0 <= nx && nx < N && !block[ny][nx] && dist[ny][nx] == INF) {
+                    que.emplace(std::make_pair(ny, nx));
+                    dist[ny][nx] = dist[p.first][p.second] + 1;
+                }
+            }
+        }
+    } else {
+        while (!que.empty()) {
+            std::pair<int, int> p = que.front();
+            que.pop();
+            for (auto u : G[p.first][p.second]) {
+                int ny = u.first, nx = u.second;
+                if (dist[ny][nx] == INF) {
+                    que.emplace(std::make_pair(ny, nx));
+                    dist[ny][nx] = dist[p.first][p.second] + 1;
+                }
+            }
+        }
+    }
+    return dist;
 }
 
 void solve() {
-    reach = vvi(N, vi(N));
-    check_reachable(reach);
-    
-    Cumsum2d cs(N, N);
-    cs.build(board);
-    
-    Graph graph = Graph(N, N);
-    rep(i, N) rep(j, N) {
-        if (!reach[i][j]) continue;
-        for (vector<pair<char, int>> &order: orders) {
-            auto [ni, nj] = check_order(i, j, order, cs);
-            if (ni != -1) graph.add(i, j, ni, nj);
-        }
-    }
-    /*
-    rep(i, N) rep(j, N) {
-        print(i, j);
-        print(graph.get(i, j));
-        print("---");
-    }
-    */
-    
-    vvi reach_all_order(N, vi(N));
-    queue<pi> q;
-    reach_all_order[0][0] = 1;
-    q.push({0, 0});
-    while (!q.empty()) {
-        auto [y, x] = q.front(); q.pop();
-        for (auto [ny, nx]: graph.get(y, x)) {
-            if (reach_all_order[ny][nx]) continue;
-            reach_all_order[ny][nx] = 1;
-            q.push({ny, nx});
-        }
-    }
-    /*    
-    rep(i, N) print(reach[i]);
-    rep(i, N) print(reach_all_order[i]);
-    */
-    
-    bool yesno = true;
-    rep(i, N) {
-        rep(j, N) {
-            if (reach[i][j] != reach_all_order[i][j]) {
-                yesno = false;
-                break;
-            }
-        }
-        if (!yesno) break;
-    }
-    
-    print(yesno ? "Yes" : "No");
-}
+    c_sum();
+    compress();
+    YN = true;
 
-void input() {
-    cin >> N;
-    board = vvi(N, vi(N));
-    rep(i, N) {
-        int y, x;
-        cin >> y >> x;
-        board[y-1][x-1] = 1;
-    }
-    cin >> M;
-    rep(i, M) {
-        string s; cin >> s;
-        vector<pair<char, int>> order;
-        char cur = s[0];
-        int cnt = 0;
-        for (char c: s) {
-            if (c == cur) cnt++;
-            else {
-                order.push_back({cur, cnt});
-                cur = c;
-                cnt = 1;
+    for (int i = 0; i < N; i++) {
+        for (int j = 0; j < N; j++) {
+            if (block[i][j]) continue;
+            for (int k = 0; k < M; k++) {
+                if (!check(i, j, T[k])) continue;
+                G[i][j].emplace_back(std::make_pair(i + mv[k].first, j + mv[k].second));
             }
         }
-        order.push_back({cur, cnt});
-        orders.push_back(order);
     }
-    
+    std::vector<std::vector<int>> dist0 = bfs(0);
+    std::vector<std::vector<int>> dist1 = bfs(1);
+    int curr = 0, prev = 0;
+    for (int i = 0; i < N; i++) {
+        for (int j = 0; j < N; j++, curr++) {
+            if (dist0[i][j] == INF) continue;
+            if (dist1[i][j] != INF && dist0[i][j] >= 0 && dist1[i][j] >= 0) {
+                prev = curr;
+            } else {
+                YN = false;
+                cout<<i<<' '<<j<<endl;
+            }
+        }
+    }
+
+    if (YN) {
+        for (int i = 0; i < M; i++) {
+            VS[i] = i + 1;
+        }
+    }
+    K = M;
 }
 
 int main() {
-    cin.tie(0);
-    ios::sync_with_stdio(false);
     input();
     solve();
-    return 0;
+    output();
 }
