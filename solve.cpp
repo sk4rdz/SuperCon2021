@@ -67,18 +67,34 @@ struct Graph {
     }
 };
 
-map<char, pi> DIR =
-    {{'U', {-1, 0}}, {'D', {1, 0}},
-     {'L', {0, -1}}, {'R', {0, 1}}};
+vector<pi> dir = {{-1, 0}, {0, -1}, {1, 0}, {0, 1}};
+map<char, pi> c2dir =
+    {{'U', {-1, 0}}, {'L', {0, -1}},
+     {'D', {1, 0}}, {'R', {0, 1}}};
 
 int N, M;
-vvi board;
+vvi board, reach;
 vector<string> S;
+
+void check_reachable(vvi &r) {
+    queue<pi> q;
+    r[0][0] = 1;
+    q.push({0, 0});
+    while (!q.empty()) {
+        auto [y, x] = q.front(); q.pop();
+        for (auto [dy, dx]: dir) {
+            int ny = y+dy, nx = x+dx;
+            if (ny < 0 or nx < 0 or ny >= N or nx >= N or board[ny][nx] or r[ny][nx]) continue;
+            r[ny][nx] = 1;
+            q.push({ny, nx});
+        }
+    }
+}
 
 pi check_order(int y, int x, string &order) {
     if (board[y][x]) return {-1, -1};
     for (char d: order) {
-        auto [dy, dx] = DIR[d];
+        auto [dy, dx] = c2dir[d];
         y += dy, x += dx;
         if (y < 0 or x < 0 or y >= N or x >= N) return {-1, -1};
         if (board[y][x]) return {-1, -1};
@@ -87,21 +103,46 @@ pi check_order(int y, int x, string &order) {
 }
 
 void solve() {
-    Graph graph = Graph(N, N);
+    reach = vvi(N, vi(N));
+    check_reachable(reach);
     
+    Graph graph = Graph(N, N);
     rep(i, N) rep(j, N) {
+        if (!reach[i][j]) continue;
         for (string &order: S) {
             auto [ni, nj] = check_order(i, j, order);
             if (ni != -1) graph.add(i, j, ni, nj);
         }
     }
-    /*
-    rep(i, N) rep(j, N) {
-        print(i, j);
-        print(graph.get(i, j));
-        print("---");
+    
+    vvi reach_all_order(N, vi(N));
+    queue<pi> q;
+    reach_all_order[0][0] = 1;
+    q.push({0, 0});
+    while (!q.empty()) {
+        auto [y, x] = q.front(); q.pop();
+        for (auto [ny, nx]: graph.get(y, x)) {
+            if (reach_all_order[ny][nx]) continue;
+            reach_all_order[ny][nx] = 1;
+            q.push({ny, nx});
+        }
     }
-    */
+    
+    //rep(i, N) print(reach[i]);
+    //rep(i, N) print(reach_all_order[i]);
+    
+    bool yesno = true;
+    rep(i, N) {
+        rep(j, N) {
+            if (reach[i][j] != reach_all_order[i][j]) {
+                yesno = false;
+                break;
+            }
+        }
+        if (!yesno) break;
+    }
+    
+    print(yesno ? "Yes" : "No");
 }
 
 void input() {
