@@ -9,7 +9,7 @@
 #define M_MAX 2000
 #define INF 1001001001
 
-using namespace std;
+/**/using namespace std;
 
 int N, M;
 int y[N_MAX], x[N_MAX];
@@ -93,40 +93,32 @@ void compress() {
     }
 }
 
-int conversion(int i, int j) {
-    return i * N + j;
-}
-
-std::pair<int, int> conversion(int n) {
-    return std::make_pair(n / N, n % N);
-}
-
 bool check(int i, int j, std::string t) {
     for (int k = 0; k < t.size(); k += 2) {
         int w = INF;
         int ni = i, nj = j;
         if (t[k] == 'R') {
             nj += (t[k + 1] - '0');
-            if (0 <= i && i < N && 0 <= j && j < N && 0 <= nj && nj <= N) {
+            if (0 <= i && i < N && 0 <= j && j < N && 0 <= nj && nj < N) {
                 w = CS_R[nj] - (j > 0 ? CS_R[j - 1] : 0);
             }
         } else if (t[k] == 'L') {
             nj -= (t[k + 1] - '0');
-            if (0 <= i && i < N && 0 <= j && j < N && 0 <= nj && nj <= N) {
+            if (0 <= i && i < N && 0 <= j && j < N && 0 <= nj && nj < N) {
                 w = CS_R[j] - (nj > 0 ? CS_R[nj - 1] : 0);
             }
         } else if (t[k] == 'U') {
             ni -= (t[k + 1] - '0');
-            if (0 <= i && i < N && 0 <= j && j < N && 0 <= ni && ni <= N) {
-                w = CS_R[ni] - (i > 0 ? CS_R[i - 1] : 0);
+            if (0 <= i && i < N && 0 <= j && j < N && 0 <= ni && ni < N) {
+                w = CS_R[i] - (ni > 0 ? CS_R[ni - 1] : 0);
             }
         } else {
             ni += (t[k + 1] - '0');
-            if (0 <= i && i < N && 0 <= j && j < N && 0 <= ni && ni <= N) {
-                w = CS_R[i] - (ni > 0 ? CS_R[ni - 1] : 0);
+            if (0 <= i && i < N && 0 <= j && j < N && 0 <= ni && ni < N) {
+                w = CS_R[ni] - (i > 0 ? CS_R[i - 1] : 0);
             }
         }
-        if (w == INF) return false;
+        if (w != 0) return false;
         i = ni, j = nj;
     }
 
@@ -190,7 +182,6 @@ void solve() {
                 prev = curr;
             } else {
                 YN = false;
-                cout<<i<<' '<<j<<endl;
             }
         }
     }
