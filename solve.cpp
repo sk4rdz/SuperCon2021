@@ -4,11 +4,9 @@
 using namespace std;
 using ll = long long;
 using pi = pair<int, int>;
-using pl = pair<ll, ll>;
+using ti = tuple<int, int, int>;
 using vi = vector<int>;
 using vvi = vector<vi>;
-using vl = vector<ll>;
-using vvl = vector<vl>;
 using Order = vector<pair<char, int>>;
 
 #define range(i, l, r) for(int i = (int)(l); i < (int)(r); i++)
@@ -75,6 +73,49 @@ template<typename T> inline bool chmax(T &a, T b) { if (a < b) { a = b; return 1
 template<typename T> inline bool chmin(T &a, T b) { if (a > b) { a = b; return 1; } return 0; }
 #pragma endregion
 
+struct Timer {
+    static const uint64_t CYCLES_PER_SEC = 3e9;
+    uint64_t start;
+  
+    Timer() : start{} { reset(); }
+  
+    void reset() { start = get_cycle(); }
+  
+    inline double get() const { return (double) get_cycle() / CYCLES_PER_SEC; }
+
+private:
+    inline uint64_t get_cycle() const {
+        unsigned low, high;
+        __asm__ volatile ("rdtsc" : "=a" (low), "=d" (high));
+        return (((uint64_t) low) | ((uint64_t) high << 32ull)) - start;
+    }
+};
+
+class XorShift {
+    unsigned x, y, z, w; 
+public:    
+    XorShift() {
+        x = 123456789;
+        y = 362436069;
+        z = 521288629;
+        w = 88675123;
+    }
+    inline unsigned next() {
+        unsigned t = x ^ (x << 11);
+        x = y; y = z; z = w;
+        return w = (w ^ (w >> 19)) ^ (t ^ (t >> 8));
+    }
+    unsigned nextInt(int n) {
+        return next() % n;
+    }
+    unsigned nextInt(int l, int r) {
+        return l + (next() % (r - l));
+    }
+    double nextDouble() {
+        return next() / 4294967295.0;
+    }
+};
+
 class Cumsum2d {
     int h, w;
     vvi data;
@@ -94,28 +135,41 @@ public:
 class Graph {
     int h, w, n;
     // ny, nx, order
-    vector<vector<tuple<int, int, int>>> g;
+    vector<vector<pi>> g;
 public:
     Graph(int h, int w) : h(h), w(w), n(h*w), g(n) {}
     
     void add(int sy, int sx, int ty, int tx, int order) {
-        g[sy*w+sx].push_back({ty, tx, order});
+        g[sy*w+sx].push_back({ty*w+tx, order});
     }
-    vector<tuple<int, int, int>> &nxt(int y, int x) {
-        return g[y*w+x];
+    vector<pi> &nxt(int v) {
+        return g[v];
+    }
+    pi decomp(int v) {
+        return {v / w, v % w};
     }
 };
+
+// vector内の任意の要素をO(1)で削除できる（並び順はめちゃくちゃになる）
+template<typename T>
+inline void fast_erase(vector<T> &a, int i) {
+    swap(a[i], a.back());
+    a.pop_back();
+}
 
 vector<pi> dir = {{-1, 0}, {0, -1}, {1, 0}, {0, 1}};
 map<char, pi> c2dir =
     {{'U', {-1, 0}}, {'L', {0, -1}},
      {'D', {1, 0}}, {'R', {0, 1}}};
 
+Timer timer;
+XorShift rnd;
+
 int N, M;
 vvi board, reach;
 vector<Order> orders;
 
-void check_reachable(vvi &r) {
+void find_reachable(vvi &r) {
     queue<pi> q;
     r[0][0] = 1;
     q.push({0, 0});
@@ -143,9 +197,48 @@ pi check_order(int y, int x, Order &order, Cumsum2d &cs) {
     return {y, x};
 }
 
-pair<bool, vi> solve() {
+bool yesno;
+vi answer;
+
+void find(Graph &g, vi &ans, vector<pi> &ans_edges) {
+    int bscore = len(ans);
+    
+    rep(_, 10) {
+        vi cur_ans;
+        vector<pi> cur_edges;
+        vi visited(N*N);
+        visited[0] = 1;
+        vector<ti> candiate;
+        for (auto [nv, k]: g.nxt(0)) {
+            if (!visited[nv]) candiate.push_back({0, nv, k});
+        }
+        while (!candiate.empty()) {
+            int c = rnd.nextInt(len(candiate));
+            auto [pv, v, k] = candiate[c];
+            fast_erase(candiate, c);
+            if (visited[v]) continue;
+            visited[v] = 1;
+            cur_edges.push_back({pv, v});
+            
+            cur_ans.push_back(k);
+            for (auto [nv, k]: g.nxt(v)) {
+                if (!visited[nv]) candiate.push_back({v, nv, k});
+            }
+        }
+        sort(all(cur_ans)); uni(cur_ans);
+        int score = len(cur_ans);
+        //dump(score);
+        if (bscore > score) {
+            bscore = score;
+            ans = cur_ans;
+            ans_edges = cur_edges;
+        }
+    }
+}
+
+void solve() {
     reach = vvi(N, vi(N));
-    check_reachable(reach);
+    find_reachable(reach);
     
     Cumsum2d cs(N, N);
     cs.build(board);
@@ -163,24 +256,26 @@ pair<bool, vi> solve() {
         }
     }
     
-    vi ans;
+    vector<pi> ans_edges;
     vvi reach_all_order(N, vi(N));
-    queue<pi> q;
     reach_all_order[0][0] = 1;
-    q.push({0, 0});
-    //BFS
+    queue<int> q; q.push(0);
+    
+    //BFS (yes/no判定)
     while (!q.empty()) {
-        auto [y, x] = q.front(); q.pop();
-        for (auto [ny, nx, k]: graph.nxt(y, x)) {
+        auto v = q.front(); q.pop();
+        for (auto [nv, k]: graph.nxt(v)) {
+            auto [ny, nx] = graph.decomp(nv);
             if (reach_all_order[ny][nx]) continue;
-            reach_all_order[ny][nx] = reach_all_order[y][x]+1;
-            ans.push_back(k);
-            q.push({ny, nx});
+            reach_all_order[ny][nx] = 1;
+            answer.push_back(k);
+            ans_edges.push_back({v, nv});
+            q.push(nv);
         }
     }
-    sort(all(ans)); uni(ans);
+    sort(all(answer)); uni(answer);
     
-    bool yesno = true;
+    yesno = true;
     rep(i, N) {
         rep(j, N) {
             if (reach[i][j] and !reach_all_order[i][j]) {
@@ -188,23 +283,31 @@ pair<bool, vi> solve() {
                 break;
             }
         }
-        if (!yesno) break;
-    }   
+        if (!yesno) return;
+    }
     
-    //debug output
+    find(graph, answer, ans_edges);
+    
+    #pragma region debug_output
+    /*
     dump(N);
     rep(i, N) dump(reach[i]);
     rep(i, N) dump(reach_all_order[i]);
+    */
+    dump("time:", timer.get());
+    dump("score:", len(answer), "/", M);
     
-    dump1(M, len(ans));
+    int rn = 0;
     rep(i, N) rep(j, N) {
-        if (graph.nxt(i, j).empty()) continue;
-        for (auto [ni, nj, k]: graph.nxt(i, j)) {
-            dump1(i*N+j+1, ni*N+nj+1, k);
-        }
+        rn += reach[i][j];
     }
+    dump("reachable nodes:", rn);
     
-    return {yesno, ans};
+    dump1(N*N, len(ans_edges));
+    for (auto [v, u]: ans_edges) {
+        dump1(v+1, u+1);
+    }
+    #pragma endregion
 }
 
 void input() {
@@ -233,18 +336,20 @@ void input() {
     }
 }
 
-void output(bool yesno, vi ans) {
-    cout << (yesno ? "YES" : "NO") << "\n";
-    cout << len(ans) << "\n";
-    for (int k: ans) cout << k << " ";
-    cout << endl;
+void output() {
+    if (yesno) {
+        cout << "YES" << "\n";
+        cout << len(answer) << "\n";
+        for (int k: answer) cout << k << " "; //要改善？
+        cout << endl;
+    } else {
+        cout << "NO" << endl;
+    }
 }
 
 int main() {
     cin.tie(0);
     ios::sync_with_stdio(false);
-    input();
-    auto [yesno, ans] = solve();
-    output(yesno, ans);
+    input(); solve(); output();
     return 0;
 }

@@ -3,10 +3,10 @@
 // 予選審査ではSEEDの値を別の「ある値」に変更する。
 #define SEED 0x0000000000000003ull
 
-#define N_MIN 3
-#define N_MAX 3
-#define M_MIN 10
-#define M_MAX 50
+#define N_MIN 2
+#define N_MAX 25
+#define M_MIN 1
+#define M_MAX 200
 
 unsigned long long xor_shift() {
   static unsigned long long x = SEED;
