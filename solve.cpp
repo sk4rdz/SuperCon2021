@@ -143,37 +143,42 @@ pi check_order(int y, int x, Order &order, Cumsum2d &cs) {
     return {y, x};
 }
 
-void solve() {
+pair<bool, vi> solve() {
     reach = vvi(N, vi(N));
     check_reachable(reach);
     
     Cumsum2d cs(N, N);
     cs.build(board);
     
+    //グラフ構築
     Graph graph = Graph(N, N);
     rep(i, N) rep(j, N) {
         if (!reach[i][j]) continue;
         rep(k, M) {
             Order &order = orders[k];
             auto [ni, nj] = check_order(i, j, order, cs);
-            if (ni != -1) graph.add(i, j, ni, nj, k);
+            if (ni != -1) {
+                graph.add(i, j, ni, nj, k);
+            }
         }
     }
     
-    unordered_set<int> ans;
+    vi ans;
     vvi reach_all_order(N, vi(N));
     queue<pi> q;
     reach_all_order[0][0] = 1;
     q.push({0, 0});
+    //BFS
     while (!q.empty()) {
         auto [y, x] = q.front(); q.pop();
         for (auto [ny, nx, k]: graph.nxt(y, x)) {
             if (reach_all_order[ny][nx]) continue;
             reach_all_order[ny][nx] = reach_all_order[y][x]+1;
-            ans.insert(k);
+            ans.push_back(k);
             q.push({ny, nx});
         }
     }
+    sort(all(ans)); uni(ans);
     
     bool yesno = true;
     rep(i, N) {
@@ -184,25 +189,22 @@ void solve() {
             }
         }
         if (!yesno) break;
-    }
+    }   
     
-    print(yesno ? "Yes" : "No");
-    print(len(ans));
-    for (int k: ans) cout << k << " ";
-    cout << endl;
-    
-    //debug
+    //debug output
     dump(N);
     rep(i, N) dump(reach[i]);
     rep(i, N) dump(reach_all_order[i]);
+    
+    dump1(M, len(ans));
     rep(i, N) rep(j, N) {
         if (graph.nxt(i, j).empty()) continue;
-        dump1("[" + to_string(i+1) + ", " + to_string(j+1) + "]");
         for (auto [ni, nj, k]: graph.nxt(i, j)) {
-            dump1(ni+1, nj+1, "order:", k, orders[k]);
+            dump1(i*N+j+1, ni*N+nj+1, k);
         }
-        dump1();
     }
+    
+    return {yesno, ans};
 }
 
 void input() {
@@ -223,20 +225,26 @@ void input() {
             if (c == cur) cnt++;
             else {
                 order.push_back({cur, cnt});
-                cur = c;
-                cnt = 1;
+                cur = c, cnt = 1;
             }
         }
         order.push_back({cur, cnt});
         orders.push_back(order);
     }
-    
+}
+
+void output(bool yesno, vi ans) {
+    cout << (yesno ? "YES" : "NO") << "\n";
+    cout << len(ans) << "\n";
+    for (int k: ans) cout << k << " ";
+    cout << endl;
 }
 
 int main() {
     cin.tie(0);
     ios::sync_with_stdio(false);
     input();
-    solve();
+    auto [yesno, ans] = solve();
+    output(yesno, ans);
     return 0;
 }
