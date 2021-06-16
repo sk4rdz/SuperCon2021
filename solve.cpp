@@ -200,38 +200,45 @@ pi check_order(int y, int x, Order &order, Cumsum2d &cs) {
 bool yesno;
 vi answer;
 
-void find(Graph &g, vi &ans, vector<pi> &ans_edges) {
+// 以下の問題を解きたい
+/*
+頂点数N(N <= 250^2), 辺数M(M <= N*2000)の有向グラフが与えられる．
+任意の頂点から伸びる辺には、それぞれ異なる色k(1 <= k <= 2000)が付いている．
+頂点0から辺を辿って全ての頂点に辿り着けるグラフが存在するか判定し、
+存在する場合はそのうち最も使用する色の数が少ないものを構築し、その色の組み合わせを出力せよ．
+存在しない場合は NO を出力せよ．
+*/
+void find(int n, Graph &g, vi &ans) {
     int bscore = len(ans);
     
     rep(_, 10) {
         vi cur_ans;
-        vector<pi> cur_edges;
-        vi visited(N*N);
+        vi visited(n);
         visited[0] = 1;
-        vector<ti> candiate;
+        vector<pi> unused_cand;
         for (auto [nv, k]: g.nxt(0)) {
-            if (!visited[nv]) candiate.push_back({0, nv, k});
+            if (!visited[nv]) unused_cand.push_back({nv, k});
         }
-        while (!candiate.empty()) {
-            int c = rnd.nextInt(len(candiate));
-            auto [pv, v, k] = candiate[c];
-            fast_erase(candiate, c);
+        
+        while (!unused_cand.empty()) {
+            int c = rnd.nextInt(len(unused_cand));
+            auto [v, k] = unused_cand[c];
+            fast_erase(unused_cand, c);
             if (visited[v]) continue;
             visited[v] = 1;
-            cur_edges.push_back({pv, v});
             
             cur_ans.push_back(k);
             for (auto [nv, k]: g.nxt(v)) {
-                if (!visited[nv]) candiate.push_back({v, nv, k});
+                if (!visited[nv]) unused_cand.push_back({nv, k});
             }
         }
+        
         sort(all(cur_ans)); uni(cur_ans);
         int score = len(cur_ans);
         //dump(score);
         if (bscore > score) {
             bscore = score;
             ans = cur_ans;
-            ans_edges = cur_edges;
         }
     }
 }
@@ -256,7 +263,6 @@ void solve() {
         }
     }
     
-    vector<pi> ans_edges;
     vvi reach_all_order(N, vi(N));
     reach_all_order[0][0] = 1;
     queue<int> q; q.push(0);
@@ -269,7 +275,6 @@ void solve() {
             if (reach_all_order[ny][nx]) continue;
             reach_all_order[ny][nx] = 1;
             answer.push_back(k);
-            ans_edges.push_back({v, nv});
             q.push(nv);
         }
     }
@@ -286,28 +291,10 @@ void solve() {
         if (!yesno) return;
     }
     
-    find(graph, answer, ans_edges);
+    find(N*N, graph, answer);
     
-    #pragma region debug_output
-    /*
-    dump(N);
-    rep(i, N) dump(reach[i]);
-    rep(i, N) dump(reach_all_order[i]);
-    */
     dump("time:", timer.get());
     dump("score:", len(answer), "/", M);
-    
-    int rn = 0;
-    rep(i, N) rep(j, N) {
-        rn += reach[i][j];
-    }
-    dump("reachable nodes:", rn);
-    
-    dump1(N*N, len(ans_edges));
-    for (auto [v, u]: ans_edges) {
-        dump1(v+1, u+1);
-    }
-    #pragma endregion
 }
 
 void input() {
