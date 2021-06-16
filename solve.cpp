@@ -152,9 +152,14 @@ public:
 
 // vector内の任意の要素をO(1)で削除できる（並び順はめちゃくちゃになる）
 template<typename T>
-inline void fast_erase(vector<T> &a, int i) {
+inline void fast_erase(vector<T> &a, const int i) {
     swap(a[i], a.back());
     a.pop_back();
+}
+
+template<typename T>
+inline bool is_exists(const unordered_set<T> &s, const T val) {
+    return s.find(val) != s.end();
 }
 
 vector<pi> dir = {{-1, 0}, {0, -1}, {1, 0}, {0, 1}};
@@ -166,7 +171,7 @@ Timer timer;
 XorShift rnd;
 
 int N, M;
-vvi board, reach;
+vvi board;
 vector<Order> orders;
 
 void find_reachable(vvi &r) {
@@ -198,7 +203,29 @@ pi check_order(int y, int x, Order &order, Cumsum2d &cs) {
 }
 
 bool yesno;
-vi answer;
+unordered_set<int> answer;
+
+pi random_choice(vvi &cands, unordered_set<int> &colors) {
+    int sm = 0;
+    for (int c: colors) {
+        sm += len(cands[c]);
+    }
+    if (sm == 0) return {-1, -1};
+    
+    int idx = rnd.nextInt(sm);
+    pi res;
+    for (int c: colors) {
+        int ln = len(cands[c]);
+        if (idx >= ln) {
+            idx -= ln;
+        } else {
+            res = {cands[c][idx], c};
+            fast_erase(cands[c], idx);
+            break;
+        }
+    }
+    return res;
+}
 
 // 以下の問題を解きたい
 /*
@@ -208,44 +235,91 @@ vi answer;
 存在する場合はそのうち最も使用する色の数が少ないものを構築し、その色の組み合わせを出力せよ．
 存在しない場合は NO を出力せよ．
 */
-void find(int n, Graph &g, vi &ans) {
+void find(int n, int c_num, Graph &g, unordered_set<int> &ans) {
     int bscore = len(ans);
     
-    rep(_, 10) {
-        vi cur_ans;
+    rep(_, 1) {
         vi visited(n);
         visited[0] = 1;
-        vector<pi> unused_cand;
-        for (auto [nv, k]: g.nxt(0)) {
-            if (!visited[nv]) unused_cand.push_back({nv, k});
-        }
+        vvi cands(c_num);
+        unordered_set<int> unused_c, used_c;
         
-        while (!unused_cand.empty()) {
-            int c = rnd.nextInt(len(unused_cand));
-            auto [v, k] = unused_cand[c];
-            fast_erase(unused_cand, c);
-            if (visited[v]) continue;
-            visited[v] = 1;
+        for (auto [nv, k]: g.nxt(0)) {
+            if (!visited[nv]) {
+                cands[k].push_back(nv);
+                unused_c.insert(k);
+            }
+        }
+        while (true) {
+            pi res;
+            res = random_choice(cands, used_c);
+            if (res.first == -1) {
+                res = random_choice(cands, unused_c);
+                if (res.first == -1) break;
+            }
+            auto [v, k] = res;
             
-            cur_ans.push_back(k);
+            if (visited[v]) continue;
+            
+            visited[v] = 1;
+            used_c.insert(k);
+            unused_c.erase(k);
+            
             for (auto [nv, k]: g.nxt(v)) {
-                if (!visited[nv]) unused_cand.push_back({nv, k});
+                if (!visited[nv]) {
+                    cands[k].push_back(nv);
+                    if (!is_exists(used_c, k)) unused_c.insert(k);
+                }
             }
         }
         
-        sort(all(cur_ans)); uni(cur_ans);
-        int score = len(cur_ans);
-        //dump(score);
+        int score = len(used_c);
+        dump(score);
         if (bscore > score) {
             bscore = score;
-            ans = cur_ans;
+            ans = used_c;
         }
     }
 }
 
+void check_answer(Graph &graph, unordered_set<int> &ans, vvi &reachable) {
+    vvi reach(N, vi(N));
+    reach[0][0] = 1;
+    queue<int> q; q.push(0);
+    vector<ti> edges;
+    
+    while (!q.empty()) {
+        auto v = q.front(); q.pop();
+        for (auto [nv, k]: graph.nxt(v)) {
+            if (!is_exists(ans, k)) continue;
+            auto [ny, nx] = graph.decomp(nv);
+            if (reach[ny][nx]) continue;
+            reach[ny][nx] = 1;
+            edges.push_back({v, nv, k});
+            q.push(nv);
+        }
+    }
+    
+    yesno = true;
+    rep(i, N) {
+        rep(j, N) {
+            if (reachable[i][j] and !reach[i][j]) {
+                yesno = false;
+                break;
+            }
+        }
+        if (!yesno) break;
+    }
+    dump(yesno ? "OK" : "NG");
+    dump1(N*N, len(edges));
+    for (auto [v, u, k]: edges) {
+        dump1(v, u, k);
+    }
+}
+
 void solve() {
-    reach = vvi(N, vi(N));
-    find_reachable(reach);
+    vvi reachable = vvi(N, vi(N));
+    find_reachable(reachable);
     
     Cumsum2d cs(N, N);
     cs.build(board);
@@ -253,7 +327,7 @@ void solve() {
     //グラフ構築
     Graph graph = Graph(N, N);
     rep(i, N) rep(j, N) {
-        if (!reach[i][j]) continue;
+        if (!reachable[i][j]) continue;
         rep(k, M) {
             Order &order = orders[k];
             auto [ni, nj] = check_order(i, j, order, cs);
@@ -263,8 +337,8 @@ void solve() {
         }
     }
     
-    vvi reach_all_order(N, vi(N));
-    reach_all_order[0][0] = 1;
+    vvi reach(N, vi(N));
+    reach[0][0] = 1;
     queue<int> q; q.push(0);
     
     //BFS (yes/no判定)
@@ -272,18 +346,17 @@ void solve() {
         auto v = q.front(); q.pop();
         for (auto [nv, k]: graph.nxt(v)) {
             auto [ny, nx] = graph.decomp(nv);
-            if (reach_all_order[ny][nx]) continue;
-            reach_all_order[ny][nx] = 1;
-            answer.push_back(k);
+            if (reach[ny][nx]) continue;
+            reach[ny][nx] = 1;
+            answer.insert(k);
             q.push(nv);
         }
     }
-    sort(all(answer)); uni(answer);
     
     yesno = true;
     rep(i, N) {
         rep(j, N) {
-            if (reach[i][j] and !reach_all_order[i][j]) {
+            if (reachable[i][j] and !reach[i][j]) {
                 yesno = false;
                 break;
             }
@@ -291,10 +364,15 @@ void solve() {
         if (!yesno) return;
     }
     
-    find(N*N, graph, answer);
+    find(N*N, M, graph, answer);
+    check_answer(graph, answer, reachable);
     
     dump("time:", timer.get());
     dump("score:", len(answer), "/", M);
+    rep(i, N) rep(j, N) {
+        if (!reachable[i][j]) dout << i*N+j << " ";
+    }
+    dout << endl;
 }
 
 void input() {
@@ -327,7 +405,7 @@ void output() {
     if (yesno) {
         cout << "YES" << "\n";
         cout << len(answer) << "\n";
-        for (int k: answer) cout << k << " "; //要改善？
+        for (int k: answer) cout << k << " ";
         cout << endl;
     } else {
         cout << "NO" << endl;
