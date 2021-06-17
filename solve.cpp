@@ -36,6 +36,11 @@ ostream &operator << (ostream &out, const vector<T> &a) {
     rep(i, len(a)) out << a[i] << (i == len(a)-1 ? "" : " ");
     return out;
 }
+template<typename T>
+ostream &operator << (ostream &out, const unordered_set<T> &a) {
+    for (T x: a) out << x << " ";
+    return out;
+}
 template<typename T, typename U>
 ostream &operator << (ostream &out, const pair<T, U> &a){
     out << a.first << " " << a.second;
@@ -72,6 +77,39 @@ inline void dump1(const T &t, const U &...u) {
 template<typename T> inline bool chmax(T &a, T b) { if (a < b) { a = b; return 1; } return 0; }
 template<typename T> inline bool chmin(T &a, T b) { if (a > b) { a = b; return 1; } return 0; }
 #pragma endregion
+
+template<typename T>
+struct BIT {
+    int N;
+    vector<T> data;
+    BIT(int n) : N(n+1), data(N) {}
+    T sum(int r) {
+        T res = 0;
+        for (int i = r; i > 0; i -= i & -i) {
+            res += data[i];
+        }
+        return res;
+    }
+    T sum(int l, int r) {
+        return sum(r) - sum(l);
+    }
+    void add(int idx, T x) {
+        for(int i = idx+1; i < N; i += i & -i) {
+            data[i] += x;
+        }
+    }
+    int lower_bound(T val) {
+        int x = 0, r = 1;
+        while (r < N) r = r << 1;
+        for (int k = r; k > 0; k = k >> 1) {
+            if (x + k < N && data[x + k] < val) {
+                val -= data[x + k];
+                x += k;
+            }
+        }
+        return x;
+    }
+};
 
 struct Timer {
     static const uint64_t CYCLES_PER_SEC = 3e9;
@@ -174,9 +212,10 @@ int N, M;
 vvi board;
 vector<Order> orders;
 
-void find_reachable(vvi &r) {
+int find_reachable(vvi &r) {
     queue<pi> q;
     r[0][0] = 1;
+    int num = 1;
     q.push({0, 0});
     while (!q.empty()) {
         auto [y, x] = q.front(); q.pop();
@@ -184,9 +223,11 @@ void find_reachable(vvi &r) {
             int ny = y+dy, nx = x+dx;
             if (ny < 0 or nx < 0 or ny >= N or nx >= N or board[ny][nx] or r[ny][nx]) continue;
             r[ny][nx] = 1;
+            num++;
             q.push({ny, nx});
         }
     }
+    return num;
 }
 
 pi check_order(int y, int x, Order &order, Cumsum2d &cs) {
@@ -210,6 +251,7 @@ pi random_choice(vvi &cands, unordered_set<int> &colors) {
     for (int c: colors) {
         sm += len(cands[c]);
     }
+    dump(sm);
     if (sm == 0) return {-1, -1};
     
     int idx = rnd.nextInt(sm);
@@ -235,12 +277,13 @@ pi random_choice(vvi &cands, unordered_set<int> &colors) {
 存在する場合はそのうち最も使用する色の数が少ないものを構築し、その色の組み合わせを出力せよ．
 存在しない場合は NO を出力せよ．
 */
-void find(int n, int c_num, Graph &g, unordered_set<int> &ans) {
+void find(const int n, const int r_num, const int c_num, Graph &g, unordered_set<int> &ans) {
     int bscore = len(ans);
     
     rep(_, 1) {
         vi visited(n);
         visited[0] = 1;
+        int visited_num = 1;
         vvi cands(c_num);
         unordered_set<int> unused_c, used_c;
         
@@ -250,7 +293,8 @@ void find(int n, int c_num, Graph &g, unordered_set<int> &ans) {
                 unused_c.insert(k);
             }
         }
-        while (true) {
+        while (visited_num < r_num) {
+            dump("num:", visited_num, "use:", len(used_c), "unu:", len(unused_c));
             pi res;
             res = random_choice(cands, used_c);
             if (res.first == -1) {
@@ -262,6 +306,7 @@ void find(int n, int c_num, Graph &g, unordered_set<int> &ans) {
             if (visited[v]) continue;
             
             visited[v] = 1;
+            visited_num++;
             used_c.insert(k);
             unused_c.erase(k);
             
@@ -282,6 +327,7 @@ void find(int n, int c_num, Graph &g, unordered_set<int> &ans) {
     }
 }
 
+//答えが合ってるかの確認　提出時には消す
 void check_answer(Graph &graph, unordered_set<int> &ans, vvi &reachable) {
     vvi reach(N, vi(N));
     reach[0][0] = 1;
@@ -300,17 +346,17 @@ void check_answer(Graph &graph, unordered_set<int> &ans, vvi &reachable) {
         }
     }
     
-    yesno = true;
+    bool ok = true;
     rep(i, N) {
         rep(j, N) {
             if (reachable[i][j] and !reach[i][j]) {
-                yesno = false;
+                ok = false;
                 break;
             }
         }
-        if (!yesno) break;
+        if (!ok) break;
     }
-    dump(yesno ? "OK" : "NG");
+    dump(ok ? "OK" : "NG");
     dump1(N*N, len(edges));
     for (auto [v, u, k]: edges) {
         dump1(v, u, k);
@@ -319,7 +365,7 @@ void check_answer(Graph &graph, unordered_set<int> &ans, vvi &reachable) {
 
 void solve() {
     vvi reachable = vvi(N, vi(N));
-    find_reachable(reachable);
+    int reachable_num = find_reachable(reachable);
     
     Cumsum2d cs(N, N);
     cs.build(board);
@@ -364,14 +410,12 @@ void solve() {
         if (!yesno) return;
     }
     
-    find(N*N, M, graph, answer);
+    find(N*N, reachable_num, M, graph, answer);
     check_answer(graph, answer, reachable);
     
     dump("time:", timer.get());
     dump("score:", len(answer), "/", M);
-    rep(i, N) rep(j, N) {
-        if (!reachable[i][j]) dout << i*N+j << " ";
-    }
+
     dout << endl;
 }
 
