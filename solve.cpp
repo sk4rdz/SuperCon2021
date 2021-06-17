@@ -1,5 +1,13 @@
-#pragma region my_template
-#include <bits/stdc++.h>
+#include <fstream>
+#include <iostream>
+#include <iterator>
+#include <map>
+#include <queue>
+#include <string>
+#include <tuple>
+#include <unordered_set>
+#include <utility>
+#include <vector>
 
 using namespace std;
 using ll = long long;
@@ -9,18 +17,10 @@ using vi = vector<int>;
 using vvi = vector<vi>;
 using Order = vector<pair<char, int>>;
 
-#define range(i, l, r) for(int i = (int)(l); i < (int)(r); i++)
-#define rrange(i, l, r) for(int i = (int)(r)-1; i >= (int)(l); i--)
-#define rep(i, n) range(i, 0, n)
-#define rrep(i, n) rrange(i, 0, n)
+#define rep(i, n) for(int i = 0; i < (int)(n); i++)
 #define len(a) ((int)(a).size())
-#define all(a) (a).begin(), (a).end()
-#define rall(a) (a).rbegin(), (a).rend()
-#define uni(a) (a).erase(unique(all(a)), (a).end());
 
-constexpr int INF = 1e9;
-constexpr ll LINF = 1e18;
-
+//ここは提出時は消す
 template<typename T>
 istream &operator >> (istream &in, vector<T> &a){
     for(T &x: a) in >> x;
@@ -46,13 +46,6 @@ ostream &operator << (ostream &out, const pair<T, U> &a){
     out << a.first << " " << a.second;
     return out;
 }
-inline void print() { cout << "\n"; }
-template <typename T, typename ...U>
-inline void print(const T &t, const U &...u) {
-    cout << t;
-    if (sizeof...(u)) cout << " ";
-    print(u...);
-}
 #ifdef LOCAL
 ofstream dout("./dump.txt");
 ofstream dout1("./dump1.txt");
@@ -74,9 +67,7 @@ inline void dump1(const T &t, const U &...u) {
     if (sizeof...(u)) dout1 << " ";
     dump1(u...);
 }
-template<typename T> inline bool chmax(T &a, T b) { if (a < b) { a = b; return 1; } return 0; }
-template<typename T> inline bool chmin(T &a, T b) { if (a > b) { a = b; return 1; } return 0; }
-#pragma endregion
+
 
 template<typename T>
 struct BIT {
@@ -173,7 +164,6 @@ public:
 
 class Graph {
     int h, w, n;
-    // ny, nx, order
     vector<vector<pi>> g;
 public:
     Graph(int h, int w) : h(h), w(w), n(h*w), g(n) {}
@@ -205,6 +195,12 @@ vector<pi> dir = {{-1, 0}, {0, -1}, {1, 0}, {0, 1}};
 map<char, pi> c2dir =
     {{'U', {-1, 0}}, {'L', {0, -1}},
      {'D', {1, 0}}, {'R', {0, 1}}};
+
+constexpr double TIME_LIM = 9.4;
+
+//時間超過した時の保険用
+constexpr double OUTPUT_TIME1 =  2.0;
+constexpr double OUTPUT_TIME2 =  8.5;
 
 Timer timer;
 XorShift rnd;
@@ -247,6 +243,18 @@ pi check_order(int y, int x, Order &order, Cumsum2d &cs) {
 bool yesno;
 unordered_set<int> answer;
 
+void output() {
+    if (yesno) {
+        cout << "YES" << "\n";
+        cout << len(answer) << "\n";
+        for (int k: answer) cout << k+1 << " ";
+        cout << endl;
+    } else {
+        cout << "NO" << endl;
+    }
+}
+
+//辺の候補の中から既に使った色の物を優先してランダムに選ぶ
 pi random_choice(vvi &cands, BIT<int> &clen, unordered_set<int> &used_c, int &used_sum) {
     int color = -1, index = -1;
     
@@ -285,8 +293,19 @@ pi random_choice(vvi &cands, BIT<int> &clen, unordered_set<int> &used_c, int &us
 存在しない場合は NO を出力せよ．
 */
 void find(const int n, const int r_num, const int c_num, Graph &g, unordered_set<int> &ans) {
-    int bscore = len(ans);
-    rep(_, 10) {
+    int bscore = M;
+    
+    bool out1_flag = false, out2_flag = false;
+    while (timer.get() < TIME_LIM) {
+        if (!out1_flag && timer.get() >= OUTPUT_TIME1) {
+            output();
+            out1_flag = true;
+        }
+        if (!out2_flag && timer.get() >= OUTPUT_TIME2) {
+            output();
+            out2_flag = true;
+        }
+        
         vi visited(n);
         visited[0] = 1;
         int visited_num = 1;
@@ -329,7 +348,7 @@ void find(const int n, const int r_num, const int c_num, Graph &g, unordered_set
         }
         
         int score = len(used_c);
-        dump(score);
+        dump(bscore);
         if (bscore > score) {
             bscore = score;
             ans = used_c;
@@ -404,7 +423,6 @@ void solve() {
             auto [ny, nx] = graph.decomp(nv);
             if (reach[ny][nx]) continue;
             reach[ny][nx] = 1;
-            answer.insert(k);
             q.push(nv);
         }
     }
@@ -425,8 +443,6 @@ void solve() {
     
     dump("time:", timer.get());
     dump("score:", len(answer), "/", M);
-
-    dout << endl;
 }
 
 void input() {
@@ -452,17 +468,6 @@ void input() {
         }
         order.push_back({cur, cnt});
         orders.push_back(order);
-    }
-}
-
-void output() {
-    if (yesno) {
-        cout << "YES" << "\n";
-        cout << len(answer) << "\n";
-        for (int k: answer) cout << k << " ";
-        cout << endl;
-    } else {
-        cout << "NO" << endl;
     }
 }
 
