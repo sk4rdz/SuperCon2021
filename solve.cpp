@@ -90,10 +90,11 @@ struct BIT {
         }
         return res;
     }
+    T sum() { return sum(N-1); }
     T sum(int l, int r) {
         return sum(r) - sum(l);
     }
-    void add(int idx, T x) {
+    void add(int idx, T x = 1) {
         for(int i = idx+1; i < N; i += i & -i) {
             data[i] += x;
         }
@@ -246,27 +247,33 @@ pi check_order(int y, int x, Order &order, Cumsum2d &cs) {
 bool yesno;
 unordered_set<int> answer;
 
-pi random_choice(vvi &cands, unordered_set<int> &colors) {
-    int sm = 0;
-    for (int c: colors) {
-        sm += len(cands[c]);
-    }
-    dump(sm);
-    if (sm == 0) return {-1, -1};
+pi random_choice(vvi &cands, BIT<int> &clen, unordered_set<int> &used_c, int &used_sum) {
+    int color = -1, index = -1;
     
-    int idx = rnd.nextInt(sm);
-    pi res;
-    for (int c: colors) {
-        int ln = len(cands[c]);
-        if (idx >= ln) {
-            idx -= ln;
-        } else {
-            res = {cands[c][idx], c};
-            fast_erase(cands[c], idx);
-            break;
+    if (used_sum != 0) {
+        int idx = rnd.nextInt(used_sum);
+        for (int c: used_c) {
+            int ln = len(cands[c]);
+            if (idx >= ln) {
+                idx -= ln;
+            } else {
+                color = c, index = idx;
+                break;
+            }
         }
+        used_sum--;
+    } else {
+        int sm = clen.sum();
+        if (sm == 0) return {-1, -1};
+        int idx = rnd.nextInt(sm);
+        int c = clen.lower_bound(idx+1);
+        idx -= clen.sum(c);
+        color = c, index = idx;
     }
-    return res;
+    int nv = cands[color][index];
+    fast_erase(cands[color], index);
+    clen.add(color, -1);
+    return {nv, color};
 }
 
 // 以下の問題を解きたい
@@ -279,41 +286,44 @@ pi random_choice(vvi &cands, unordered_set<int> &colors) {
 */
 void find(const int n, const int r_num, const int c_num, Graph &g, unordered_set<int> &ans) {
     int bscore = len(ans);
-    
-    rep(_, 1) {
+    rep(_, 10) {
         vi visited(n);
         visited[0] = 1;
         int visited_num = 1;
         vvi cands(c_num);
-        unordered_set<int> unused_c, used_c;
+        BIT<int> cands_len(c_num);
+        unordered_set<int> used_c;
+        int used_sum = 0;
         
         for (auto [nv, k]: g.nxt(0)) {
             if (!visited[nv]) {
                 cands[k].push_back(nv);
-                unused_c.insert(k);
+                cands_len.add(k);
             }
         }
         while (visited_num < r_num) {
-            dump("num:", visited_num, "use:", len(used_c), "unu:", len(unused_c));
+            //dump("num:", visited_num, "use:", len(used_c));
             pi res;
-            res = random_choice(cands, used_c);
-            if (res.first == -1) {
-                res = random_choice(cands, unused_c);
-                if (res.first == -1) break;
-            }
+            res = random_choice(cands, cands_len, used_c, used_sum);
+            if (res.first == -1) break;
             auto [v, k] = res;
             
             if (visited[v]) continue;
             
             visited[v] = 1;
             visited_num++;
-            used_c.insert(k);
-            unused_c.erase(k);
+            if (!is_exists(used_c, k)) {
+                used_c.insert(k);
+                used_sum += len(cands[k]);
+            }
             
             for (auto [nv, k]: g.nxt(v)) {
                 if (!visited[nv]) {
                     cands[k].push_back(nv);
-                    if (!is_exists(used_c, k)) unused_c.insert(k);
+                    cands_len.add(k);
+                    if (is_exists(used_c, k)) {
+                        used_sum++;
+                    }
                 }
             }
         }
