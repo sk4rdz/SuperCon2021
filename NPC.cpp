@@ -22,64 +22,6 @@ using Order = vector<pair<char, int>>;
 #define all(a) (a).begin(), (a).end()
 #define len(a) ((int)(a).size())
 
-//ここは提出時は消す
-template<typename T>
-istream &operator >> (istream &in, vector<T> &a){
-    for(T &x: a) in >> x;
-    return in;
-}
-template<typename T, typename U>
-istream &operator >> (istream &in, pair<T, U> &a){
-    in >> a.first >> a.second;
-    return in;
-}
-template<typename T>
-ostream &operator << (ostream &out, const vector<T> &a) {
-    rep(i, len(a)) out << a[i] << (i == len(a)-1 ? "" : " ");
-    return out;
-}
-template<typename T>
-ostream &operator << (ostream &out, const unordered_set<T> &a) {
-    for (T x: a) out << x << " ";
-    return out;
-}
-template<typename T, typename U>
-ostream &operator << (ostream &out, const pair<T, U> &a){
-    out << a.first << " " << a.second;
-    return out;
-}
-ofstream dout("./dump.txt");
-ofstream dout1("./dump1.txt");
-
-inline void dump() { dout << "\n"; }
-template <typename T, typename ...U>
-inline void dump(const T &t, const U &...u) {
-    dout << t;
-    if (sizeof...(u)) dout << " ";
-    dump(u...);
-}
-inline void dump1() { dout1 << "\n"; }
-template <typename T, typename ...U>
-inline void dump1(const T &t, const U &...u) {
-    dout1 << t;
-    if (sizeof...(u)) dout1 << " ";
-    dump1(u...);
-}
-
-class Timer {
-    static const uint64_t CYCLES_PER_SEC = 3e9;
-    uint64_t start;
-    inline uint64_t get_cycle() const {
-        unsigned low, high;
-        __asm__ volatile ("rdtsc" : "=a" (low), "=d" (high));
-        return (((uint64_t) low) | ((uint64_t) high << 32ull)) - start;
-    }
-public:
-    Timer() : start{} { reset(); }
-    void reset() { start = get_cycle(); }
-    inline double get() const { return (double) get_cycle() / CYCLES_PER_SEC; }
-};
-
 class XorShift {
     unsigned x, y, z, w; 
 public:    
@@ -198,7 +140,6 @@ map<char, pi> c2dir =
 constexpr double TIME_LIM = 9400.0;
 constexpr double OUTPUT_TIME1 =  8000.0; //時間超過時の保険用
 
-Timer timer;
 XorShift rnd;
 
 int N, M;
@@ -355,43 +296,6 @@ void find(const int n, const int r_num, const int c_num, Graph &g, unordered_set
         }
         step++;
     }
-    dump("step_num:", step);
-}
-
-//答えが合ってるかの確認　提出時には消す
-void check_answer(Graph &graph, unordered_set<int> &ans, vvi &reachable) {
-    vvi reach(N, vi(N));
-    reach[0][0] = 1;
-    queue<int> q; q.push(0);
-    vector<ti> edges;
-    
-    while (!q.empty()) {
-        auto v = q.front(); q.pop();
-        for (auto [nv, k]: graph.nxt(v)) {
-            if (!is_exists(ans, k)) continue;
-            auto [ny, nx] = graph.decomp(nv);
-            if (reach[ny][nx]) continue;
-            reach[ny][nx] = 1;
-            edges.push_back({v, nv, k});
-            q.push(nv);
-        }
-    }
-    
-    bool ok = true;
-    rep(i, N) {
-        rep(j, N) {
-            if (reachable[i][j] != reach[i][j]) {
-                ok = false;
-                break;
-            }
-        }
-        if (!ok) break;
-    }
-    dump(ok ? "OK" : "NG");
-    dump1(N*N, len(edges));
-    for (auto [v, u, k]: edges) {
-        dump1(v, u, k);
-    }
 }
 
 void solve() {
@@ -441,10 +345,6 @@ void solve() {
     }
     
     find(N*N, reachable_num, M, graph, answer);
-    check_answer(graph, answer, reachable);
-    
-    dump("time:", timer.get());
-    dump("score:", len(answer), "/", M);
 }
 
 void input() {
