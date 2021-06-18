@@ -355,7 +355,7 @@ void find(const int n, const int r_num, const int c_num, Graph &g, unordered_set
         }
         step++;
     }
-    dump(step);
+    dump("step_num:", step);
 }
 
 //答えが合ってるかの確認　提出時には消す

@@ -30,7 +30,7 @@ void swap(int *x, int *y) {
 }
 
 int main() {
-  for (int t = 0; t < 20; t++) {
+  for (int t = 0; t < 50; t++) {
     char file_name[64];
     sprintf(file_name, "qual_random_%02d.in", t + 1);
 
