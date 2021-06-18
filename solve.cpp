@@ -1,3 +1,4 @@
+#include <algorithm>
 #include <fstream>
 #include <iostream>
 #include <iterator>
@@ -8,9 +9,9 @@
 #include <unordered_set>
 #include <utility>
 #include <vector>
+#include <sys/time.h>
 
 using namespace std;
-using ll = long long;
 using pi = pair<int, int>;
 using ti = tuple<int, int, int>;
 using vi = vector<int>;
@@ -18,6 +19,7 @@ using vvi = vector<vi>;
 using Order = vector<pair<char, int>>;
 
 #define rep(i, n) for(int i = 0; i < (int)(n); i++)
+#define all(a) (a).begin(), (a).end()
 #define len(a) ((int)(a).size())
 
 //ここは提出時は消す
@@ -46,13 +48,9 @@ ostream &operator << (ostream &out, const pair<T, U> &a){
     out << a.first << " " << a.second;
     return out;
 }
-#ifdef LOCAL
 ofstream dout("./dump.txt");
 ofstream dout1("./dump1.txt");
-#else
-ofstream dout("/dev/null");
-ofstream dout1("/dev/null");
-#endif
+
 inline void dump() { dout << "\n"; }
 template <typename T, typename ...U>
 inline void dump(const T &t, const U &...u) {
@@ -68,57 +66,18 @@ inline void dump1(const T &t, const U &...u) {
     dump1(u...);
 }
 
-
-template<typename T>
-struct BIT {
-    int N;
-    vector<T> data;
-    BIT(int n) : N(n+1), data(N) {}
-    T sum(int r) {
-        T res = 0;
-        for (int i = r; i > 0; i -= i & -i) {
-            res += data[i];
-        }
-        return res;
-    }
-    T sum() { return sum(N-1); }
-    T sum(int l, int r) {
-        return sum(r) - sum(l);
-    }
-    void add(int idx, T x = 1) {
-        for(int i = idx+1; i < N; i += i & -i) {
-            data[i] += x;
-        }
-    }
-    int lower_bound(T val) {
-        int x = 0, r = 1;
-        while (r < N) r = r << 1;
-        for (int k = r; k > 0; k = k >> 1) {
-            if (x + k < N && data[x + k] < val) {
-                val -= data[x + k];
-                x += k;
-            }
-        }
-        return x;
-    }
-};
-
-struct Timer {
+class Timer {
     static const uint64_t CYCLES_PER_SEC = 3e9;
     uint64_t start;
-  
-    Timer() : start{} { reset(); }
-  
-    void reset() { start = get_cycle(); }
-  
-    inline double get() const { return (double) get_cycle() / CYCLES_PER_SEC; }
-
-private:
     inline uint64_t get_cycle() const {
         unsigned low, high;
         __asm__ volatile ("rdtsc" : "=a" (low), "=d" (high));
         return (((uint64_t) low) | ((uint64_t) high << 32ull)) - start;
     }
+public:
+    Timer() : start{} { reset(); }
+    void reset() { start = get_cycle(); }
+    inline double get() const { return (double) get_cycle() / CYCLES_PER_SEC; }
 };
 
 class XorShift {
@@ -162,6 +121,41 @@ public:
     }
 };
 
+template<typename T>
+class BIT {
+    int N;
+    vector<T> data;
+public:
+    BIT(int n) : N(n+1), data(N) {}
+    T sum(int r) {
+        T res = 0;
+        for (int i = r; i > 0; i -= i & -i) {
+            res += data[i];
+        }
+        return res;
+    }
+    T sum() { return sum(N-1); }
+    T sum(int l, int r) {
+        return sum(r) - sum(l);
+    }
+    void add(int idx, T x = 1) {
+        for(int i = idx+1; i < N; i += i & -i) {
+            data[i] += x;
+        }
+    }
+    int lower_bound(T val) {
+        int x = 0, r = 1;
+        while (r < N) r = r << 1;
+        for (int k = r; k > 0; k = k >> 1) {
+            if (x + k < N && data[x + k] < val) {
+                val -= data[x + k];
+                x += k;
+            }
+        }
+        return x;
+    }
+};
+
 class Graph {
     int h, w, n;
     vector<vector<pi>> g;
@@ -178,6 +172,11 @@ public:
         return {v / w, v % w};
     }
 };
+
+inline double get_elapsed_time(struct timeval *begin, struct timeval *end) {
+  return (end->tv_sec - begin->tv_sec) * 1000 + (end->tv_usec - begin->tv_usec) / 1000.0;
+}
+struct timeval t1, t2;
 
 // vector内の任意の要素をO(1)で削除できる（並び順はめちゃくちゃになる）
 template<typename T>
@@ -196,11 +195,8 @@ map<char, pi> c2dir =
     {{'U', {-1, 0}}, {'L', {0, -1}},
      {'D', {1, 0}}, {'R', {0, 1}}};
 
-constexpr double TIME_LIM = 9.4;
-
-//時間超過した時の保険用
-constexpr double OUTPUT_TIME1 =  2.0;
-constexpr double OUTPUT_TIME2 =  8.5;
+constexpr double TIME_LIM = 9400.0;
+constexpr double OUTPUT_TIME1 =  8000.0; //時間超過時の保険用
 
 Timer timer;
 XorShift rnd;
@@ -247,7 +243,12 @@ void output() {
     if (yesno) {
         cout << "YES" << "\n";
         cout << len(answer) << "\n";
-        for (int k: answer) cout << k+1 << " ";
+        vi ans(all(answer));
+        sort(all(ans));
+        rep(i, len(ans)) {
+            if (i != 0) cout << " ";
+            cout << ans[i]+1;
+        }
         cout << endl;
     } else {
         cout << "NO" << endl;
@@ -294,17 +295,10 @@ pi random_choice(vvi &cands, BIT<int> &clen, unordered_set<int> &used_c, int &us
 void find(const int n, const int r_num, const int c_num, Graph &g, unordered_set<int> &ans) {
     int bscore = M;
     
-    bool out1_flag = false, out2_flag = false;
-    while (timer.get() < TIME_LIM) {
-        if (!out1_flag && timer.get() >= OUTPUT_TIME1) {
-            output();
-            out1_flag = true;
-        }
-        if (!out2_flag && timer.get() >= OUTPUT_TIME2) {
-            output();
-            out2_flag = true;
-        }
-        
+    int step = 0;
+    bool out1_flag = false;
+    
+    while (true) {
         vi visited(n);
         visited[0] = 1;
         int visited_num = 1;
@@ -320,7 +314,6 @@ void find(const int n, const int r_num, const int c_num, Graph &g, unordered_set
             }
         }
         while (visited_num < r_num) {
-            //dump("num:", visited_num, "use:", len(used_c));
             pi res;
             res = random_choice(cands, cands_len, used_c, used_sum);
             if (res.first == -1) break;
@@ -347,12 +340,22 @@ void find(const int n, const int r_num, const int c_num, Graph &g, unordered_set
         }
         
         int score = len(used_c);
-        dump(bscore);
+        
         if (bscore > score) {
             bscore = score;
             ans = used_c;
         }
+        
+        gettimeofday(&t2, NULL);
+        if (step == 0) output();
+        double time = get_elapsed_time(&t1, &t2);
+        if (time >= TIME_LIM) break;
+        if (!out1_flag && time >= OUTPUT_TIME1) {
+            output(); out1_flag = true;
+        }
+        step++;
     }
+    dump(step);
 }
 
 //答えが合ってるかの確認　提出時には消す
@@ -377,7 +380,7 @@ void check_answer(Graph &graph, unordered_set<int> &ans, vvi &reachable) {
     bool ok = true;
     rep(i, N) {
         rep(j, N) {
-            if (reachable[i][j] and !reach[i][j]) {
+            if (reachable[i][j] != reach[i][j]) {
                 ok = false;
                 break;
             }
@@ -429,7 +432,7 @@ void solve() {
     yesno = true;
     rep(i, N) {
         rep(j, N) {
-            if (reachable[i][j] and !reach[i][j]) {
+            if (reachable[i][j] != reach[i][j]) {
                 yesno = false;
                 break;
             }
@@ -471,6 +474,7 @@ void input() {
 }
 
 int main() {
+    gettimeofday(&t1, NULL);
     cin.tie(0);
     ios::sync_with_stdio(false);
     input(); solve(); output();
